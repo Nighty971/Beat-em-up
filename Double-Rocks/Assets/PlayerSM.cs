@@ -92,7 +92,9 @@ public class PlayerSM : MonoBehaviour
                 jumpDirection = new Vector2(animator.GetFloat("InputX"), animator.GetFloat("InputY"));
                 StartCoroutine(WaitForRoll());
                 break;
-
+            case PlayerState.PUNCH:
+                animator.SetTrigger("PUNCH");
+                break;
 
             default:
                 break;
@@ -128,6 +130,15 @@ public class PlayerSM : MonoBehaviour
 
                 }
 
+                //TO PUNCH
+                if (Input.GetMouseButtonDown(0))
+                {
+
+
+                    
+                    TransitionToState(PlayerState.PUNCH);
+
+                }
 
                 break;
 
@@ -153,6 +164,15 @@ public class PlayerSM : MonoBehaviour
                     TransitionToState(PlayerState.JUMP);
                 }
 
+                if (Input.GetMouseButtonDown(0))
+                {
+
+
+
+                    TransitionToState(PlayerState.PUNCH);
+
+                }
+
 
                 break;
 
@@ -176,6 +196,15 @@ public class PlayerSM : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TransitionToState(PlayerState.JUMP);
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+
+
+
+                    TransitionToState(PlayerState.PUNCH);
+
                 }
 
                 break;
