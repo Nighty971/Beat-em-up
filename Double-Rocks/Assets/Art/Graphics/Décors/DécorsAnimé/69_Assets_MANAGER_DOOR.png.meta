@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c3aef5a8057d1442ea9b8d317e5331de
+guid: 19c15c18982ba407da8dfbdb652d61f5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_0
+      name: 69_Assets_MANAGER_DOOR_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 189
+        width: 72
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d6d6c07f5c26c24f8711b32ca955ce7
-      internalID: -810501572
+      spriteID: e392886ffd052d4458de3aa1c40a4146
+      internalID: 1299091052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_1
+      name: 69_Assets_MANAGER_DOOR_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 72
         y: 0
-        width: 96
-        height: 189
+        width: 72
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4876706bd0084a4b8ea21316a0b7aa2
-      internalID: -319597060
+      spriteID: 104a321009b6d4e4ca72cf8d4474c99d
+      internalID: -154815595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_2
+      name: 69_Assets_MANAGER_DOOR_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 144
         y: 0
-        width: 96
-        height: 189
+        width: 72
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd63b728221417547a41a4e3f4e81780
-      internalID: -45331171
+      spriteID: b6afb5ba458c0e543b64ef6b4b55b355
+      internalID: 606923368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_3
+      name: 69_Assets_MANAGER_DOOR_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 72
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4bf08f92dd7e6a4fb2dc9fb700a466e
+      internalID: -39208412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 69_Assets_MANAGER_DOOR_4
       rect:
         serializedVersion: 2
         x: 288
         y: 0
-        width: 96
-        height: 189
+        width: 72
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,134 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fe0edf23d3f4174585c4d4905e37f48
-      internalID: 631986122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_4
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 96
-        height: 189
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d132962891fd7ba4e9bc44b66473f51c
-      internalID: -1948417376
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_5
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 96
-        height: 189
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a71d8d6adc415934b983ca9eae1ce852
-      internalID: -595260126
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_6
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 96
-        height: 189
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e548999ae69ac9f4da7a4a0d33bad1cc
-      internalID: 462266194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_7
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 0
-        width: 96
-        height: 189
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eda1fcbd53f758c4294fb1e106794367
-      internalID: 252423137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_8
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 96
-        height: 189
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ede6034b25d095c49b0c9b148d50d3bb
-      internalID: 305256129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_9
-      rect:
-        serializedVersion: 2
-        x: 864
-        y: 0
-        width: 96
-        height: 189
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff6f38b9154424143918302745175339
-      internalID: -643376447
+      spriteID: f827e4426f74ece4d8002e9ba2683355
+      internalID: -980636762
       vertices: []
       indices: 
       edges: []
@@ -336,16 +231,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      58_Assets_CHUCKBOT_5: -595260126
-      58_Assets_CHUCKBOT_3: 631986122
-      58_Assets_CHUCKBOT_2: -45331171
-      58_Assets_CHUCKBOT_0: -810501572
-      58_Assets_CHUCKBOT_9: -643376447
-      58_Assets_CHUCKBOT_7: 252423137
-      58_Assets_CHUCKBOT_1: -319597060
-      58_Assets_CHUCKBOT_6: 462266194
-      58_Assets_CHUCKBOT_8: 305256129
-      58_Assets_CHUCKBOT_4: -1948417376
+      69_Assets_MANAGER_DOOR_1: -154815595
+      69_Assets_MANAGER_DOOR_3: -39208412
+      69_Assets_MANAGER_DOOR_0: 1299091052
+      69_Assets_MANAGER_DOOR_4: -980636762
+      69_Assets_MANAGER_DOOR_2: 606923368
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
