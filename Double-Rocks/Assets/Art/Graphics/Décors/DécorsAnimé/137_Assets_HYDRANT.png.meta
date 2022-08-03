@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 10f9c0e6c7e764088bb060e35bad1410
+guid: 209f1db7ec8a84e99b64ce9dc9efc8a1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 106_Assets_PICKUP_CANS_0
+      name: 137_Assets_HYDRANT_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 22
-        height: 22
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac3e5d5533481734a9e3f770cb9fb59e
-      internalID: 1088913991
+      spriteID: b198865133897cd4b9b2f30e24561be6
+      internalID: -2134078727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 106_Assets_PICKUP_CANS_1
+      name: 137_Assets_HYDRANT_1
       rect:
         serializedVersion: 2
-        x: 22
+        x: 48
         y: 0
-        width: 22
-        height: 22
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 546049d50f1bdc842bee6daaef82002e
-      internalID: 1034815165
+      spriteID: 4f6468ef0ab01f34ea1dcc92fd3fe9a8
+      internalID: -2057595571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 106_Assets_PICKUP_CANS_2
+      name: 137_Assets_HYDRANT_2
       rect:
         serializedVersion: 2
-        x: 44
+        x: 96
         y: 0
-        width: 22
-        height: 22
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,8 +160,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2feb8c9eaed17044b95724aac7642931
-      internalID: 694324355
+      spriteID: d7c83974fc622cd499024bb033e0dc89
+      internalID: 147427432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 137_Assets_HYDRANT_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e77749c4f593d4fb7e6fb203fef658
+      internalID: 107065124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 137_Assets_HYDRANT_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b94edb271cafb842b690b3cfe6f187a
+      internalID: 324024980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 137_Assets_HYDRANT_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1508889f18bc7204cb878a42d6062d88
+      internalID: 1964015613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 137_Assets_HYDRANT_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e922aeef76ea6441b61495e53750ab1
+      internalID: 712107434
       vertices: []
       indices: 
       edges: []
@@ -177,9 +261,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      106_Assets_PICKUP_CANS_2: 694324355
-      106_Assets_PICKUP_CANS_0: 1088913991
-      106_Assets_PICKUP_CANS_1: 1034815165
+      137_Assets_HYDRANT_6: 712107434
+      137_Assets_HYDRANT_0: -2134078727
+      137_Assets_HYDRANT_5: 1964015613
+      137_Assets_HYDRANT_2: 147427432
+      137_Assets_HYDRANT_3: 107065124
+      137_Assets_HYDRANT_4: 324024980
+      137_Assets_HYDRANT_1: -2057595571
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

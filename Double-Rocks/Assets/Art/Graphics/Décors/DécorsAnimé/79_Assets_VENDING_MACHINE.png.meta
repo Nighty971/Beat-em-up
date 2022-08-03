@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 10f9c0e6c7e764088bb060e35bad1410
+guid: 5805765ce7fe042339e03a3fe3dafcc0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,64 +104,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 106_Assets_PICKUP_CANS_0
+      name: 79_Assets_VENDING_MACHINE_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 22
-        height: 22
+        width: 64
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac3e5d5533481734a9e3f770cb9fb59e
-      internalID: 1088913991
+      spriteID: e0c9c761dc3f81345b5bd455af5387f9
+      internalID: -2085872264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 106_Assets_PICKUP_CANS_1
+      name: 79_Assets_VENDING_MACHINE_1
       rect:
         serializedVersion: 2
-        x: 22
+        x: 64
         y: 0
-        width: 22
-        height: 22
+        width: 64
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 546049d50f1bdc842bee6daaef82002e
-      internalID: 1034815165
+      spriteID: bde5756953ec86b4aab86314f4b3e7d4
+      internalID: 1751779879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 106_Assets_PICKUP_CANS_2
+      name: 79_Assets_VENDING_MACHINE_2
       rect:
         serializedVersion: 2
-        x: 44
+        x: 128
         y: 0
-        width: 22
-        height: 22
+        width: 64
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2feb8c9eaed17044b95724aac7642931
-      internalID: 694324355
+      spriteID: 67522e2f5eb71af46b08b3fdf7987da9
+      internalID: -1321825622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 79_Assets_VENDING_MACHINE_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f009879e8fb1f4093e09349ef90504
+      internalID: -344321985
       vertices: []
       indices: 
       edges: []
@@ -177,9 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      106_Assets_PICKUP_CANS_2: 694324355
-      106_Assets_PICKUP_CANS_0: 1088913991
-      106_Assets_PICKUP_CANS_1: 1034815165
+      79_Assets_VENDING_MACHINE_2: -1321825622
+      79_Assets_VENDING_MACHINE_1: 1751779879
+      79_Assets_VENDING_MACHINE_3: -344321985
+      79_Assets_VENDING_MACHINE_0: -2085872264
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

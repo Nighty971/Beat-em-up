@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02d7dea796b11414baec88c0223ce5cb
+guid: adc782208a44b48fda42ebf796c4f09f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 55_Assets_HEALTHCAN_BLUE_0
+      name: 86_Assets_STREET_LIGHT_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 130
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20b3ec88e688ed7489954f13d953615f
-      internalID: -457897519
+      spriteID: 174cd186ea7f60d428db8605b7f393b0
+      internalID: -979585014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 55_Assets_HEALTHCAN_BLUE_1
+      name: 86_Assets_STREET_LIGHT_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 130
         y: 0
-        width: 16
-        height: 16
+        width: 130
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f89a286f53d4b4d4182e2b1e3c5cba95
-      internalID: 487157936
+      spriteID: 8a590d53edcef7c4295aaa7c90bfe1d9
+      internalID: 1530758229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 55_Assets_HEALTHCAN_BLUE_2
+      name: 86_Assets_STREET_LIGHT_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 260
         y: 0
-        width: 16
-        height: 16
+        width: 130
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48dfed1eaa4f27945a51826ce58eb5c5
-      internalID: 1163465753
+      spriteID: 8c379fe25c5707f4cba80925217aa959
+      internalID: -482976733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 55_Assets_HEALTHCAN_BLUE_3
+      name: 86_Assets_STREET_LIGHT_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 390
         y: 0
-        width: 16
-        height: 16
+        width: 130
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26d4efc7beb6ca6429ebb80247386127
-      internalID: -1999990921
+      spriteID: d306beb95c767e546a3ca548717379bf
+      internalID: 601630869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 55_Assets_HEALTHCAN_BLUE_4
+      name: 86_Assets_STREET_LIGHT_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 520
         y: 0
-        width: 16
-        height: 16
+        width: 130
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fa3fa33680bf3c41b19c30a0785c662
-      internalID: 198865414
+      spriteID: ed59e8cceea0c7c4abb6debda8a288f4
+      internalID: 680036096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 55_Assets_HEALTHCAN_BLUE_5
+      name: 86_Assets_STREET_LIGHT_5
       rect:
         serializedVersion: 2
-        x: 80
+        x: 650
         y: 0
-        width: 16
-        height: 16
+        width: 130
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,20 +223,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12dc8c20135e5444db733da6a61fdb41
-      internalID: 1984892535
+      spriteID: ed524d712e0b87b4aa8a2f18e5619a50
+      internalID: -1337082184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 55_Assets_HEALTHCAN_BLUE_6
+      name: 86_Assets_STREET_LIGHT_6
       rect:
         serializedVersion: 2
-        x: 96
+        x: 780
         y: 0
-        width: 16
-        height: 16
+        width: 130
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 955b2fd4b6bb2864fa4a56ebb0a2be70
-      internalID: -183327634
+      spriteID: c9903d7d51677d6489768670f73e201d
+      internalID: -1529793178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 55_Assets_HEALTHCAN_BLUE_7
+      name: 86_Assets_STREET_LIGHT_7
       rect:
         serializedVersion: 2
-        x: 112
+        x: 910
         y: 0
-        width: 16
-        height: 16
+        width: 130
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,20 +265,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89e60ba48c567ff419617a0d4e97ab6a
-      internalID: -1768527927
+      spriteID: 7161e7091ae8f164785f6408ab84bd14
+      internalID: 257100411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 55_Assets_HEALTHCAN_BLUE_8
+      name: 86_Assets_STREET_LIGHT_8
       rect:
         serializedVersion: 2
-        x: 128
+        x: 1040
         y: 0
-        width: 16
-        height: 16
+        width: 130
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,8 +286,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d137c19b51ebde142a042bbd1dacdea4
-      internalID: -1304177385
+      spriteID: f721e0c458b027346950425562c74d0f
+      internalID: -1782352018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 86_Assets_STREET_LIGHT_9
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 0
+        width: 130
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb1fe43e3f9a12488d3a4ef7ada0e8a
+      internalID: 1873968304
       vertices: []
       indices: 
       edges: []
@@ -303,15 +324,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      55_Assets_HEALTHCAN_BLUE_4: 198865414
-      55_Assets_HEALTHCAN_BLUE_3: -1999990921
-      55_Assets_HEALTHCAN_BLUE_5: 1984892535
-      55_Assets_HEALTHCAN_BLUE_7: -1768527927
-      55_Assets_HEALTHCAN_BLUE_1: 487157936
-      55_Assets_HEALTHCAN_BLUE_8: -1304177385
-      55_Assets_HEALTHCAN_BLUE_2: 1163465753
-      55_Assets_HEALTHCAN_BLUE_6: -183327634
-      55_Assets_HEALTHCAN_BLUE_0: -457897519
+      86_Assets_STREET_LIGHT_0: -979585014
+      86_Assets_STREET_LIGHT_3: 601630869
+      86_Assets_STREET_LIGHT_6: -1529793178
+      86_Assets_STREET_LIGHT_7: 257100411
+      86_Assets_STREET_LIGHT_2: -482976733
+      86_Assets_STREET_LIGHT_8: -1782352018
+      86_Assets_STREET_LIGHT_1: 1530758229
+      86_Assets_STREET_LIGHT_4: 680036096
+      86_Assets_STREET_LIGHT_9: 1873968304
+      86_Assets_STREET_LIGHT_5: -1337082184
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
