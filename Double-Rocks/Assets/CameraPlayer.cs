@@ -40,9 +40,9 @@ public class CameraPlayer : MonoBehaviour
     {
         Vector3 posCam = player.transform.position;
         posCam += dirPlayerToCam;
-
+        posCam.y = 0;
         Vector3 clampPosition = Vector3.Lerp(transform.position, posCam, Time.deltaTime);
-        clampPosition.x = Mathf.Clamp(clampPosition.x, -5f, 7f);
+        clampPosition.x = Mathf.Clamp(clampPosition.x, xClampLeft, xClampRight);
 
         transform.position = clampPosition;
 
@@ -51,7 +51,7 @@ public class CameraPlayer : MonoBehaviour
 
     private void FollowClamp()
     {
-        if (isOutOfBoundaries())
+        //if (isOutOfBoundaries())
         {
             MoveToPlayer();
         }

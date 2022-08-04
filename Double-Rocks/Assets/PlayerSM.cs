@@ -5,18 +5,24 @@ using UnityEngine.Tilemaps;
 
 public class PlayerSM : MonoBehaviour
 {
+    [SerializeField] Transform graphics;
     [Header("STATE")]
     public PlayerState currentState;
 
     [Header("ANIMATIONS")]
+    [SerializeField] AnimationClip punchClip;
     [SerializeField] AnimationClip jumpClip;
+    [SerializeField] AnimationCurve _jumpCurve;
     [SerializeField] Animator animator;
 
     [Header("SPEED")]
     [SerializeField] float speed = 5f;
     [SerializeField] float sprintSpeed = 10f;
-    [SerializeField] float jumpForce;
+    [SerializeField] float jumpTimer;
     [SerializeField] float jumpHeight = 2f;
+    [SerializeField] float jumpDuration = 2f;
+    float xMove;
+    float lastXDirection = 1;
 
     Vector2 dirInput;
     Vector2 jumpDirection;
@@ -32,6 +38,7 @@ public class PlayerSM : MonoBehaviour
         WALK,
         RUN,
         PUNCH,
+        PUNCH2,
         JUMP,
         DEAD,
     }
@@ -63,6 +70,8 @@ public class PlayerSM : MonoBehaviour
 
         }
 
+        GetMoveDirection();
+
         OnStateUpdate();
     }
 
@@ -90,10 +99,12 @@ public class PlayerSM : MonoBehaviour
             case PlayerState.JUMP:
                 animator.SetTrigger("JUMP");
                 jumpDirection = new Vector2(animator.GetFloat("InputX"), animator.GetFloat("InputY"));
-                StartCoroutine(WaitForRoll());
+                
+                //StartCoroutine(WaitForJump());
                 break;
             case PlayerState.PUNCH:
                 animator.SetTrigger("PUNCH");
+                StartCoroutine(Punch());
                 break;
 
             default:
@@ -121,24 +132,26 @@ public class PlayerSM : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
 
-                    // CALCULE DE LA FORCE EN FONCTION DU SAUT
-                    jumpForce = Mathf.Sqrt(-2 * Physics2D.gravity.y * rb2D.gravityScale * jumpHeight);
-
-
-                    rb2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                    
                     TransitionToState(PlayerState.JUMP);
 
                 }
 
                 //TO PUNCH
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetButtonDown("Fire1"))
                 {
 
-
-                    
                     TransitionToState(PlayerState.PUNCH);
 
                 }
+
+                if (Input.GetButtonUp("Fire1"))
+                {
+
+                    TransitionToState(PlayerState.IDLE);
+
+                }
+
 
                 break;
 
@@ -158,18 +171,24 @@ public class PlayerSM : MonoBehaviour
                     TransitionToState(PlayerState.RUN);
                 }
 
-                // TO ROLL
+                // TO JUMP
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TransitionToState(PlayerState.JUMP);
                 }
 
-                if (Input.GetMouseButtonDown(0))
+                // TO PUNCH
+                if (Input.GetButtonDown("Fire1"))
                 {
 
-
-
                     TransitionToState(PlayerState.PUNCH);
+
+                }
+
+                if (Input.GetButtonUp("Fire1"))
+                {
+
+                    TransitionToState(PlayerState.IDLE);
 
                 }
 
@@ -192,24 +211,49 @@ public class PlayerSM : MonoBehaviour
                     break;
                 }
 
-                // TO ROLL
+                // TO JUMP
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TransitionToState(PlayerState.JUMP);
                 }
 
-                if (Input.GetMouseButtonDown(0))
+                // TO PUNCH
+                if (Input.GetButtonDown("Fire1"))
                 {
 
-
-
                     TransitionToState(PlayerState.PUNCH);
+
+                }
+
+                if (Input.GetButtonUp("Fire1"))
+                {
+
+                    TransitionToState(PlayerState.IDLE);
 
                 }
 
                 break;
 
             case PlayerState.PUNCH:
+
+
+                break;
+
+            case PlayerState.JUMP:
+                if (jumpTimer < jumpDuration)
+                {
+                    jumpTimer += Time.deltaTime;
+
+                    float y = _jumpCurve.Evaluate(jumpTimer / jumpDuration);
+
+                    graphics.localPosition = new Vector3(graphics.localPosition.x, y * jumpHeight, graphics.localPosition.z);
+
+                }
+                else
+                {
+                    jumpTimer = 0f;
+                    TransitionToState(PlayerState.IDLE);
+                }
 
 
                 break;
@@ -254,9 +298,7 @@ public class PlayerSM : MonoBehaviour
                 break;
 
 
-            case PlayerState.JUMP:
-                //rb2D.velocity = jumpDirection.normalized * jumpHeight;
-                break;
+            
 
             case PlayerState.PUNCH:
 
@@ -284,6 +326,7 @@ public class PlayerSM : MonoBehaviour
                 break;
 
             case PlayerState.JUMP:
+                graphics.localPosition = Vector3.zero;
                 break;
 
             default:
@@ -298,7 +341,7 @@ public class PlayerSM : MonoBehaviour
         OnStateEnter();
     }
 
-    IEnumerator WaitForRoll()
+    IEnumerator WaitForJump()
     {
 
         yield return new WaitForSeconds(jumpClip.length);
@@ -306,5 +349,25 @@ public class PlayerSM : MonoBehaviour
 
     }
 
+    IEnumerator Punch()
+    {
+        yield return new WaitForSeconds(punchClip.length);
+        TransitionToState(PlayerState.IDLE);
+    }
 
+    private void GetMoveDirection()
+    {
+        // ON RECUPERE LES INPUTS DANS UN FLOAT
+        xMove = Input.GetAxisRaw("Horizontal");
+
+        // ON RECUPERE LA DERNIERE DIRECTION
+        if (xMove != 0)
+        {
+            lastXDirection = xMove;
+
+        }
+
+        // ON ORIENTE LES GRAPHICS EN FONCTION DE LA VALEUR DE LA DERNIERE DIRECTION
+        graphics.transform.eulerAngles = lastXDirection < 0 ? new Vector3(0, 180, 0) : Vector3.zero;
+    }
 }
