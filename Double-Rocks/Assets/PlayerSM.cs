@@ -9,6 +9,7 @@ public class PlayerSM : MonoBehaviour
     public PlayerState currentState;
 
     [Header("ANIMATIONS")]
+    [SerializeField] AnimationClip punchClip;
     [SerializeField] AnimationClip jumpClip;
     [SerializeField] Animator animator;
 
@@ -90,10 +91,11 @@ public class PlayerSM : MonoBehaviour
             case PlayerState.JUMP:
                 animator.SetTrigger("JUMP");
                 jumpDirection = new Vector2(animator.GetFloat("InputX"), animator.GetFloat("InputY"));
-                StartCoroutine(WaitForRoll());
+                StartCoroutine(WaitForJump());
                 break;
             case PlayerState.PUNCH:
                 animator.SetTrigger("PUNCH");
+                StartCoroutine(Punch());
                 break;
 
             default:
@@ -131,14 +133,20 @@ public class PlayerSM : MonoBehaviour
                 }
 
                 //TO PUNCH
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetButtonDown("Fire1"))
                 {
 
-
-                    
                     TransitionToState(PlayerState.PUNCH);
 
                 }
+
+                if (Input.GetButtonUp("Fire1"))
+                {
+
+                    TransitionToState(PlayerState.IDLE);
+
+                }
+
 
                 break;
 
@@ -158,18 +166,24 @@ public class PlayerSM : MonoBehaviour
                     TransitionToState(PlayerState.RUN);
                 }
 
-                // TO ROLL
+                // TO JUMP
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TransitionToState(PlayerState.JUMP);
                 }
 
-                if (Input.GetMouseButtonDown(0))
+                // TO PUNCH
+                if (Input.GetButtonDown("Fire1"))
                 {
 
-
-
                     TransitionToState(PlayerState.PUNCH);
+
+                }
+
+                if (Input.GetButtonUp("Fire1"))
+                {
+
+                    TransitionToState(PlayerState.IDLE);
 
                 }
 
@@ -192,18 +206,24 @@ public class PlayerSM : MonoBehaviour
                     break;
                 }
 
-                // TO ROLL
+                // TO JUMP
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TransitionToState(PlayerState.JUMP);
                 }
 
-                if (Input.GetMouseButtonDown(0))
+                // TO PUNCH
+                if (Input.GetButtonDown("Fire1"))
                 {
 
-
-
                     TransitionToState(PlayerState.PUNCH);
+
+                }
+
+                if (Input.GetButtonUp("Fire1"))
+                {
+
+                    TransitionToState(PlayerState.IDLE);
 
                 }
 
@@ -298,12 +318,18 @@ public class PlayerSM : MonoBehaviour
         OnStateEnter();
     }
 
-    IEnumerator WaitForRoll()
+    IEnumerator WaitForJump()
     {
 
         yield return new WaitForSeconds(jumpClip.length);
         TransitionToState(PlayerState.IDLE);
 
+    }
+
+    IEnumerator Punch()
+    {
+        yield return new WaitForSeconds(punchClip.length);
+        TransitionToState(PlayerState.IDLE);
     }
 
 
