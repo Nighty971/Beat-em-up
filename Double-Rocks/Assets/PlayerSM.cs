@@ -11,7 +11,7 @@ public class PlayerSM : MonoBehaviour
 
     [Header("ANIMATIONS")]
     [SerializeField] AnimationClip punchClip;
-    [SerializeField] AnimationClip jumpClip;
+    [SerializeField] AnimationClip tauntClip;
     [SerializeField] AnimationCurve _jumpCurve;
     [SerializeField] Animator animator;
 
@@ -21,11 +21,10 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] float jumpTimer;
     [SerializeField] float jumpHeight = 2f;
     [SerializeField] float jumpDuration = 2f;
-    float xMove;
-    float lastXDirection = 1;
-
+    
     Vector2 dirInput;
     Vector2 jumpDirection;
+    
 
 
     Rigidbody2D rb2D;
@@ -38,8 +37,8 @@ public class PlayerSM : MonoBehaviour
         WALK,
         RUN,
         PUNCH,
-        PUNCH2,
         JUMP,
+        TAUNT,
         DEAD,
     }
 
@@ -103,10 +102,18 @@ public class PlayerSM : MonoBehaviour
                 //StartCoroutine(WaitForJump());
                 break;
             case PlayerState.PUNCH:
+                rb2D.velocity = Vector2.zero;
                 animator.SetTrigger("PUNCH");
                 StartCoroutine(Punch());
                 break;
 
+            case PlayerState.TAUNT:
+                animator.SetTrigger("TAUNT");
+                
+                break;
+            
+
+                break;
             default:
                 break;
         }
@@ -150,6 +157,16 @@ public class PlayerSM : MonoBehaviour
 
                     TransitionToState(PlayerState.IDLE);
 
+                }
+                //TO TAUNT
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    TransitionToState(PlayerState.TAUNT);
+                }
+
+                if (Input.GetKeyUp(KeyCode.C))
+                {
+                    TransitionToState(PlayerState.IDLE);
                 }
 
 
@@ -255,6 +272,12 @@ public class PlayerSM : MonoBehaviour
                     TransitionToState(PlayerState.IDLE);
                 }
 
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    animator.SetTrigger("AirAttack");
+                }
+                
+
 
                 break;
 
@@ -341,10 +364,10 @@ public class PlayerSM : MonoBehaviour
         OnStateEnter();
     }
 
-    IEnumerator WaitForJump()
+    IEnumerator TAUNT()
     {
 
-        yield return new WaitForSeconds(jumpClip.length);
+        yield return new WaitForSeconds(tauntClip.length);
         TransitionToState(PlayerState.IDLE);
 
     }
@@ -355,19 +378,16 @@ public class PlayerSM : MonoBehaviour
         TransitionToState(PlayerState.IDLE);
     }
 
+    
     private void GetMoveDirection()
     {
-        // ON RECUPERE LES INPUTS DANS UN FLOAT
-        xMove = Input.GetAxisRaw("Horizontal");
 
-        // ON RECUPERE LA DERNIERE DIRECTION
-        if (xMove != 0)
-        {
-            lastXDirection = xMove;
-
-        }
-
+        if (rb2D.velocity.x < 0)
         // ON ORIENTE LES GRAPHICS EN FONCTION DE LA VALEUR DE LA DERNIERE DIRECTION
-        graphics.transform.eulerAngles = lastXDirection < 0 ? new Vector3(0, 180, 0) : Vector3.zero;
+        graphics.transform.eulerAngles = new Vector3(0, 180, 0);
+
+        if (rb2D.velocity.x > 0)
+            // ON ORIENTE LES GRAPHICS EN FONCTION DE LA VALEUR DE LA DERNIERE DIRECTION
+            graphics.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 }
