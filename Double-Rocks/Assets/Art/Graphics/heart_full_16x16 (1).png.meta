@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ef20e0cf730f4fa1aabae0623ec69b9
+guid: c9d99d99aa8b20d41b592d5b0011f451
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -102,112 +102,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: 73_Assets_LIVES_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 2
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 251ef9e2aeb36334aaaee177a5b8b225
-      internalID: -2007432904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 73_Assets_LIVES_1
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 2
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 307f5aa9c16219243a74a275e9164142
-      internalID: 737487410
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 73_Assets_LIVES_2
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 2
-        width: 18
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f358677ae64782f4391b059626f10b06
-      internalID: -570712768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 73_Assets_LIVES_3
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 2
-        width: 18
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c7d406195265e24f831534bde29abc9
-      internalID: 1982679738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 73_Assets_LIVES_4
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 2
-        width: 16
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 145508ba543fc4645a8b7753ee83f2d8
-      internalID: 1366022023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -218,12 +113,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      73_Assets_LIVES_2: -570712768
-      73_Assets_LIVES_4: 1366022023
-      73_Assets_LIVES_1: 737487410
-      73_Assets_LIVES_0: -2007432904
-      73_Assets_LIVES_3: 1982679738
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -24,9 +24,9 @@ public class PlayerSM : MonoBehaviour
     
     Vector2 dirInput;
     Vector2 jumpDirection;
-    
 
 
+    public PlayerHealth playerHealth;
     Rigidbody2D rb2D;
 
 
@@ -35,6 +35,7 @@ public class PlayerSM : MonoBehaviour
     {
         IDLE,
         WALK,
+        HURT,
         RUN,
         PUNCH,
         JUMP,
@@ -52,7 +53,7 @@ public class PlayerSM : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         OnStateEnter();
 
-
+        
 
 
     }
@@ -70,7 +71,7 @@ public class PlayerSM : MonoBehaviour
         }
 
         GetMoveDirection();
-
+       
         OnStateUpdate();
     }
 
@@ -111,9 +112,12 @@ public class PlayerSM : MonoBehaviour
                 animator.SetTrigger("TAUNT");
                 
                 break;
-            
+            case PlayerState.HURT:
+                animator.SetTrigger("HURT");
 
                 break;
+            
+
             default:
                 break;
         }
@@ -143,6 +147,9 @@ public class PlayerSM : MonoBehaviour
                     TransitionToState(PlayerState.JUMP);
 
                 }
+
+                
+
 
                 //TO PUNCH
                 if (Input.GetButtonDown("Fire1"))
@@ -209,6 +216,8 @@ public class PlayerSM : MonoBehaviour
 
                 }
 
+                
+
 
                 break;
 
@@ -249,6 +258,8 @@ public class PlayerSM : MonoBehaviour
 
                 }
 
+                
+
                 break;
 
             case PlayerState.PUNCH:
@@ -276,7 +287,9 @@ public class PlayerSM : MonoBehaviour
                 {
                     animator.SetTrigger("AirAttack");
                 }
-                
+
+               
+
 
 
                 break;
@@ -352,6 +365,9 @@ public class PlayerSM : MonoBehaviour
                 graphics.localPosition = Vector3.zero;
                 break;
 
+            case PlayerState.DEAD:
+                animator.SetBool("isDead", false);
+                break;
             default:
                 break;
         }
@@ -389,5 +405,13 @@ public class PlayerSM : MonoBehaviour
         if (rb2D.velocity.x > 0)
             // ON ORIENTE LES GRAPHICS EN FONCTION DE LA VALEUR DE LA DERNIERE DIRECTION
             graphics.transform.eulerAngles = new Vector3(0, 0, 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Enemy"))
+        {
+            animator.SetTrigger("HURT");
+        }
     }
 }

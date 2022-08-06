@@ -10,7 +10,7 @@ public class EnnemiesSM : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float attackRange = 5f;
     [SerializeField] float attackDelay = 1f;
-
+    
     public LayerMask whatIsPlayer;
     public EnnemieState currentState;
     private Transform target;
@@ -54,7 +54,7 @@ public class EnnemiesSM : MonoBehaviour
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, whatIsPlayer);
         
         Run = isInChaseRange && !isInAttackRange;
-        Debug.Log(Run);
+       
         animator.SetBool("IsRunning" , Run);
 
         dir = target.position - transform.position;
@@ -68,6 +68,7 @@ public class EnnemiesSM : MonoBehaviour
             animator.SetFloat("y", dir.y);
         }
 
+        GetMoveDirection();
 
         OnStateUpdate();
     }
@@ -230,5 +231,16 @@ public class EnnemiesSM : MonoBehaviour
         rb2D.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
     }
 
+    private void GetMoveDirection()
+    {
+
+        if (rb2D.velocity.x < 0)
+            // ON ORIENTE LES GRAPHICS EN FONCTION DE LA VALEUR DE LA DERNIERE DIRECTION
+           transform.eulerAngles = new Vector3(0, 180, 0);
+
+        if (rb2D.velocity.x > 0)
+            // ON ORIENTE LES GRAPHICS EN FONCTION DE LA VALEUR DE LA DERNIERE DIRECTION
+           transform.eulerAngles = new Vector3(0, 0, 0);
+    }
 
 }
