@@ -8,6 +8,7 @@ public class EnnemieAI : MonoBehaviour
     [SerializeField] float checkRadius;
     [SerializeField] float attackRadius;
 
+    public int damageOnCollision = 20;
     private bool shouldRotate;
 
     public LayerMask whatIsPlayer;
@@ -69,6 +70,26 @@ public class EnnemieAI : MonoBehaviour
     private void MoveCharacter(Vector2 dir)
     {
         rb2D.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damageOnCollision);
+        }
+
+        
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("PunchPoint"))
+        {
+            animator.SetTrigger("HURT");
+        }
     }
 
 }

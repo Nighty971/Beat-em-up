@@ -11,7 +11,7 @@ public class CameraPlayer : MonoBehaviour
     [SerializeField] float xClampRight;
 
     Vector3 dirPlayerToCam;
-
+    Vector3 posPlayer;
 
 
     private void Start()
@@ -26,6 +26,7 @@ public class CameraPlayer : MonoBehaviour
         //Follow();
         //MoveToPlayer();
         FollowClamp();
+        
     }
 
     private void Follow()
@@ -41,7 +42,8 @@ public class CameraPlayer : MonoBehaviour
         Vector3 posCam = player.transform.position;
         posCam += dirPlayerToCam;
         posCam.y = 0;
-        Vector3 clampPosition = Vector3.Lerp(transform.position, posCam, Time.deltaTime);
+        Vector3 clampPosition = posCam;
+        //Vector3 clampPosition = Vector3.Lerp(transform.position, posCam, Time.deltaTime);
         clampPosition.x = Mathf.Clamp(clampPosition.x, xClampLeft, xClampRight);
 
         transform.position = clampPosition;
@@ -55,6 +57,11 @@ public class CameraPlayer : MonoBehaviour
         {
             MoveToPlayer();
         }
+
+        //posPlayer = player.transform.position;
+        //posPlayer.y = 0;
+        //posPlayer.z = transform.position.z;
+        //transform.position = posPlayer;
     }
 
     bool isOutOfBoundaries()
