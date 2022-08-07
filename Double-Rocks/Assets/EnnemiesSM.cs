@@ -108,16 +108,7 @@ public class EnnemiesSM : MonoBehaviour
 
     }
 
-    /*
-    void Flip()
-    {
-        Vector3 theScale = graphics.transform.localScale;
-        theScale.x *= -1;
-        gameObject.transform.localScale = theScale;
 
-        facingRight = !facingRight;
-    }
-    */
     void OnStateEnter()
     {
 
