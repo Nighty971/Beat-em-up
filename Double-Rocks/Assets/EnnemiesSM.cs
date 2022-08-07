@@ -10,17 +10,24 @@ public class EnnemiesSM : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float attackRange = 5f;
     [SerializeField] float attackDelay = 1f;
+    
+    [SerializeField] GameObject graphics;
+    //Test nouvelle methode rotate
+    
 
     public LayerMask whatIsPlayer;
     public EnnemieState currentState;
     private Transform target;
+
+    
     private Vector3 dir;
     private Vector2 movement;
 
-    public bool shouldRotate;
+    
     public bool isInChaseRange;
     public bool isInAttackRange;
     private bool Run = false;
+
 
     private float attackTime;
     
@@ -29,9 +36,10 @@ public class EnnemiesSM : MonoBehaviour
         IsRunning,
         Idle,
         Attack,
-
+        isDead,
     }
 
+    
     Rigidbody2D rb2D;
     
 
@@ -44,28 +52,39 @@ public class EnnemiesSM : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
         OnStateEnter();
+
     }
 
+    //Note: pour rotate l'ennemie soit stocker la velociter et voir si elle est supérieur ou inferieur a 0 en x, Ou calculer la distance entre l'ennemie et le jouer et determiner vers quelle direction il se trouve et rotate les graphics
+    
     // Update is called once per frame
     void Update()
     {
+        //GetMoveDirection();
 
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, whatIsPlayer);
         
         Run = isInChaseRange && !isInAttackRange;
-        Debug.Log(Run);
+        
         animator.SetBool("IsRunning" , Run);
 
+
+        //ANCIENNE METHODE POUR LE ROTATE 
+        
         dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         dir.Normalize();
         movement = dir;
 
-        if (shouldRotate)
+
+        if (dir.x > 0)
         {
-            animator.SetFloat("x", dir.x);
-            animator.SetFloat("y", dir.y);
+            graphics.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            graphics.transform.localScale = new Vector3(-1, 1, 1);
         }
 
 
@@ -74,6 +93,8 @@ public class EnnemiesSM : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
+
         if (isInChaseRange && isInAttackRange)
         {
             MoveCharacter(movement);
@@ -84,9 +105,19 @@ public class EnnemiesSM : MonoBehaviour
         {
             rb2D.velocity = Vector2.zero;
         }
+
     }
-    
-    
+
+    /*
+    void Flip()
+    {
+        Vector3 theScale = graphics.transform.localScale;
+        theScale.x *= -1;
+        gameObject.transform.localScale = theScale;
+
+        facingRight = !facingRight;
+    }
+    */
     void OnStateEnter()
     {
 
@@ -181,24 +212,6 @@ public class EnnemiesSM : MonoBehaviour
         }
     }
 
-    /*void OnStateFixedUpdate()
-    {
-        switch (currentState)
-        {
-
-            case EnnemieState.Idle:
-                break;
-
-            case EnnemieState.IsRunning:
-                
-                break;
-
-            case EnnemieState.Attack:
-                break;
-
-        }
-    }
-    */
     
     void OnStateExit()
     {
