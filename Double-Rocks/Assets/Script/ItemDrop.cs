@@ -5,44 +5,45 @@ using UnityEngine;
 
 public class ItemDrop : MonoBehaviour
 {
-    [SerializeField] private GameObject[] itemList; 
-    private int itemNum; 
-    private int randNum;
-    private Transform Epos; //La position de l'ennemi est la position de l'item
+    [SerializeField]
+    private GameObject[] itemList; // liste des items
+    private int itemNum; // numero a choisir dans la liste d'item
+    private int randNum; // chance de loot
+    private Transform Epos; // position de l'ennemie
 
 
     private void Start()
     {
-        // itemList = CamFollow.itemListPass;
         Epos = GetComponent<Transform>();
-        Debug.Log(itemList);
     }
 
     public void DropItem()
     {
 
-        randNum = Random.Range(0, 101); // 100% de chance de loot;
-        //Debug.Log("Random Number is " + randNum);
 
 
-        if (randNum >= 95) 
+        randNum = Random.Range(0, 101); // 100% loot chance;
+        Debug.Log("Random Number is " + randNum);
+
+
+        if (randNum >= 76) 
         {
-            itemNum = 2; 
+            itemNum = 2;
             Instantiate(itemList[itemNum], Epos.position, Quaternion.identity);
 
 
         }
-        else if (randNum > 75 && randNum < 95) 
+        else if (randNum > 41 && randNum < 75) 
         {
 
-            itemNum = 1; 
+            itemNum = 1;
             Instantiate(itemList[itemNum], Epos.position, Quaternion.identity);
 
         }
-        else if (randNum > 40 && randNum <= 75)
+        else if (randNum > 0 && randNum <= 40)
         {
 
-            itemNum = 0; 
+            itemNum = 0;
             Instantiate(itemList[itemNum], Epos.position, Quaternion.identity);
 
         }

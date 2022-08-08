@@ -9,11 +9,13 @@ public class EnnemiesHealth : MonoBehaviour
     [SerializeField]public float healthAmount = 10;
     public static bool isdead;
 
-    
+    private ItemDrop getItem;
+
     // Start is called before the first frame update
     void Start()
     {
         isdead = false;
+        getItem = GetComponent<ItemDrop>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,14 @@ public class EnnemiesHealth : MonoBehaviour
             isdead = true;
 
             GetComponent<EnnemiesSM>().TransitionToState(EnnemiesSM.EnnemieState.isDead);
+            
+            //test
+            if (getItem != null)
+            {
+                getItem.DropItem();
+                Debug.Log("Dropped an Item " + getItem);
+            }
+            //fin
         }
 
         if (Input.GetKeyDown(KeyCode.I))
