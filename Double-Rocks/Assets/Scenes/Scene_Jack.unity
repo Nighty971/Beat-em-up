@@ -167,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718099913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.12, y: 0.16, z: 0}
+  m_LocalPosition: {x: -6.85, y: -3.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -221,12 +221,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 718099913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61570ce2b39dca3429ddfe0293181ac4, type: 3}
+  m_Script: {fileID: 11500000, guid: aa1c570258308d345ba25bc223c80b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1717591598}
   checkRadius: 50
-  speed: 3
+  speed: 5
   attackRange: 1
   attackDelay: 1
   graphics: {fileID: 1949429735}
@@ -259,12 +259,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718099913}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 523f1943bf569a44a914ea7850304791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthData: {fileID: 0}
+  healthAmount: 10
 --- !u!1 &839612017
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +814,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5494502604004740394, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0f44f59dc10e4da4fbb2ebe668fa1bf5, type: 2}
     - target: {fileID: 5494502604004740395, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -823,6 +827,7 @@ PrefabInstance:
     - {fileID: 7658330430368820900, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
     - {fileID: 983460334, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
     - {fileID: 2350841071795180939, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
+    - {fileID: 1677678120, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
 --- !u!1001 &6839682858393653821
 PrefabInstance:

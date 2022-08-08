@@ -6,7 +6,6 @@ public class EnnemiesSM : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] float checkRadius;
-    //[SerializeField] float attackRadius;
     [SerializeField] float speed = 5f;
     [SerializeField] float attackRange = 5f;
     [SerializeField] float attackDelay = 1f;
@@ -61,8 +60,6 @@ public class EnnemiesSM : MonoBehaviour
     void Update()
     {
 
-        
-        //GetMoveDirection();
 
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, whatIsPlayer);
@@ -127,10 +124,15 @@ public class EnnemiesSM : MonoBehaviour
             
 
             case EnnemieState.Attack:
-                Debug.Log("Attack");
                 attackTime = 0f;
                 animator.SetBool("IsRunning", false);
                 animator.SetTrigger("ATTACK");
+                rb2D.velocity = Vector2.zero;
+                break;
+
+            case EnnemieState.isDead:
+                animator.SetBool("IsRunning", false);
+                animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
                 break;
 
