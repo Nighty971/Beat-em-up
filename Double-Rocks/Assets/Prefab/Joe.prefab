@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5494502604004740393}
   - component: {fileID: 5494502604004740395}
   - component: {fileID: 5494502604004740394}
-  - component: {fileID: 623183215087492395}
   - component: {fileID: 7658330430368820900}
   - component: {fileID: 983460334}
   - component: {fileID: 2350841071795180939}
-  m_Layer: 0
+  - component: {fileID: 1677678120}
+  m_Layer: 7
   m_Name: Joe
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -109,31 +109,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &623183215087492395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5494502604004740392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef362dba354e42d44bca779a9fb63e83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5494502604004740394}
-  checkRadius: 0
-  attackRadius: 2
-  speed: 0
-  attackRange: 5
-  attackDelay: 1
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 64
-  currentState: 0
-  shouldRotate: 0
-  isInChaseRange: 0
-  isInAttackRange: 0
 --- !u!114 &7658330430368820900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,3 +176,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.81854635, y: 1.2317641}
   m_EdgeRadius: 0
+--- !u!114 &1677678120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5494502604004740392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61570ce2b39dca3429ddfe0293181ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5494502604004740394}
+  checkRadius: 0
+  attackRadius: 0
+  speed: 5
+  attackRange: 5
+  attackDelay: 1
+  graphics: {fileID: 0}
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  currentState: 0
+  isInChaseRange: 0
+  isInAttackRange: 0

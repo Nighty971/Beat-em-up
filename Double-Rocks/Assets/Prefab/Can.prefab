@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 169196352766318238}
   - component: {fileID: 4225845905885347127}
   m_Layer: 0
-  m_Name: 106_Assets_PICKUP_CANS_0
+  m_Name: Can
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

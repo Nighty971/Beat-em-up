@@ -31,14 +31,23 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (!isInvincible)
+        if (!isInvincible && currentHealth > 0)
         {
             //Prendre des dommages
             currentHealth -= damage;
+            if(currentHealth < 0)
+                currentHealth = 0;
             healthBar.SetHealth(currentHealth);
             isInvincible = true;
             StartCoroutine(InvicibilityFlash());
             StartCoroutine(HandleInvicibilityDelay());
+        }
+
+        if(currentHealth <= 0)
+        {
+            
+            GetComponent<PlayerSM>().TransitionToState(PlayerSM.PlayerState.DEAD);
+            
         }
         
     }
