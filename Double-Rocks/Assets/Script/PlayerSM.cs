@@ -114,6 +114,7 @@ public class PlayerSM : MonoBehaviour
                 break;
             case PlayerState.HURT:
                 animator.SetTrigger("HURT");
+                rb2D.velocity = Vector2.zero;
 
                 break;
             case PlayerState.DEAD:
