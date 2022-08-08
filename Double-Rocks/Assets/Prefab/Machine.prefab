@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 6138727563961279358}
   - component: {fileID: 1857187263}
   m_Layer: 0
-  m_Name: 79_Assets_VENDING_MACHINE_0
+  m_Name: Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -60,6 +60,8 @@ public class EnnemiesSM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         //GetMoveDirection();
 
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
@@ -220,7 +222,7 @@ public class EnnemiesSM : MonoBehaviour
         }
     }
 
-    void TransitionToState(EnnemieState nextState)
+    public void TransitionToState(EnnemieState nextState)
     {
         OnStateExit();
         currentState = nextState;

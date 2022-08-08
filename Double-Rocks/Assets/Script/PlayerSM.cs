@@ -116,7 +116,12 @@ public class PlayerSM : MonoBehaviour
                 animator.SetTrigger("HURT");
 
                 break;
-            
+            case PlayerState.DEAD:
+                animator.SetBool("isDead", true);
+                rb2D.velocity = Vector2.zero;
+                gameObject.layer = 8;
+
+                break;
 
             default:
                 break;
@@ -296,17 +301,6 @@ public class PlayerSM : MonoBehaviour
 
             case PlayerState.DEAD:
 
-                //if(dirInput.magnitude == 0)
-                //{
-                //    animator.SetBool("IDLE", true);
-                //    animator.SetBool("RUN", false);
-                //}
-
-                //else
-                //{
-                //    animator.SetBool("IDLE", false);
-                //    animator.SetBool("RUN", true);
-                //}
 
 
                 break;
@@ -332,9 +326,13 @@ public class PlayerSM : MonoBehaviour
                 rb2D.velocity = dirInput.normalized * sprintSpeed;
 
                 break;
+            case PlayerState.DEAD:
+                
+                rb2D.velocity = Vector2.zero;
+
+                break;
 
 
-            
 
             case PlayerState.PUNCH:
 
@@ -373,7 +371,7 @@ public class PlayerSM : MonoBehaviour
         }
     }
 
-    void TransitionToState(PlayerState nextState)
+    public void TransitionToState(PlayerState nextState)
     {
         OnStateExit();
         currentState = nextState;
