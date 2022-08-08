@@ -6,13 +6,13 @@ public class EnnemiesSM : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] float checkRadius;
-    [SerializeField] float attackRadius;
+    //[SerializeField] float attackRadius;
     [SerializeField] float speed = 5f;
     [SerializeField] float attackRange = 5f;
     [SerializeField] float attackDelay = 1f;
     
     [SerializeField] GameObject graphics;
-    //Test nouvelle methode rotate
+    
     
 
     public LayerMask whatIsPlayer;
@@ -55,7 +55,7 @@ public class EnnemiesSM : MonoBehaviour
 
     }
 
-    //Note: pour rotate l'ennemie soit stocker la velociter et voir si elle est supérieur ou inferieur a 0 en x, Ou calculer la distance entre l'ennemie et le jouer et determiner vers quelle direction il se trouve et rotate les graphics
+    
     
     // Update is called once per frame
     void Update()
@@ -69,8 +69,6 @@ public class EnnemiesSM : MonoBehaviour
         
         animator.SetBool("IsRunning" , Run);
 
-
-        //ANCIENNE METHODE POUR LE ROTATE 
         
         dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
