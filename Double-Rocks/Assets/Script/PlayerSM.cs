@@ -397,11 +397,11 @@ public class PlayerSM : MonoBehaviour
     private void GetMoveDirection()
     {
 
-        if (rb2D.velocity.x < 0)
+        if (dirInput.x < 0)
         // ON ORIENTE LES GRAPHICS EN FONCTION DE LA VALEUR DE LA DERNIERE DIRECTION
         graphics.transform.eulerAngles = new Vector3(0, 180, 0);
 
-        if (rb2D.velocity.x > 0)
+        if (dirInput.x > 0)
             // ON ORIENTE LES GRAPHICS EN FONCTION DE LA VALEUR DE LA DERNIERE DIRECTION
             graphics.transform.eulerAngles = new Vector3(0, 0, 0);
     }

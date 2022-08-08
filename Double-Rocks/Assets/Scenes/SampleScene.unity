@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Joe
       objectReference: {fileID: 0}
+    - target: {fileID: 5494502604004740392, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5494502604004740393, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -412,7 +416,9 @@ PrefabInstance:
       propertyPath: attackRadius
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1677678120, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
+    - {fileID: 7658330430368820900, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
 --- !u!1001 &244292491
 PrefabInstance:
@@ -509,6 +515,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &299805676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5494502604004740392, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
+  m_PrefabInstance: {fileID: 243031958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &299805680 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5494502604004740394, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
+  m_PrefabInstance: {fileID: 243031958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &299805683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299805676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1c570258308d345ba25bc223c80b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 299805680}
+  checkRadius: 0
+  speed: 5
+  attackRange: 5
+  attackDelay: 1
+  graphics: {fileID: 299805676}
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  currentState: 0
+  isInChaseRange: 0
+  isInAttackRange: 0
 --- !u!4 &471068710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1075782169432971395, guid: 8df1efddf7f533846898f152186a2f82, type: 3}
