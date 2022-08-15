@@ -36,6 +36,7 @@ public class EnnemiesSM : MonoBehaviour
         Idle,
         Attack,
         isDead,
+        Hurt,
     }
 
     
@@ -135,8 +136,13 @@ public class EnnemiesSM : MonoBehaviour
                 animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
                 break;
+            case EnnemieState.Hurt:
+                animator.SetTrigger("Hurt");
+                rb2D.velocity = Vector2.zero;
+                break;
 
-
+            default:
+                break;
         }
     }
 
@@ -199,8 +205,10 @@ public class EnnemiesSM : MonoBehaviour
                 {
                     TransitionToState(EnnemieState.Idle);
                 }
+                break;
 
 
+            default:
                 break;
         }
     }
@@ -236,5 +244,11 @@ public class EnnemiesSM : MonoBehaviour
         rb2D.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("PunchPoint"))
+        {
+            animator.SetTrigger("Hurt");
+        }
+    }
 }

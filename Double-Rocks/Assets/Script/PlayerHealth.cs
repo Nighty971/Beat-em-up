@@ -9,10 +9,23 @@ public class PlayerHealth : MonoBehaviour
 
     public float invicibilityFlashDelay = 0.2f;
     public float invicibilityTimeAfterHit = 1.5f;
+
+    public float destroyDelay = 1.5f;
     
     public bool isInvincible = false;
     public SpriteRenderer graphics;
     public HealthBar healthBar;
+
+    public static PlayerHealth instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
+    }
     void Start()
     {
         currentHealth = maxHealth;
@@ -23,10 +36,36 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         //Tester la barre de vie
-        //if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            TakeDamage(20);
+        }
+
+        //if (Input.GetKeyDown(KeyCode.R))
         //{
-        //    TakeDamage(20);
+        //    Instantiate(gameObject);
+        //    GetComponent<PlayerSM>().TransitionToState(PlayerSM.PlayerState.ULTIMATE);
         //}
+    }
+
+
+
+    public void HealPlayer(int amount)
+    {
+
+        if ((currentHealth + amount) > maxHealth)
+        {
+
+            currentHealth = maxHealth;
+
+        }
+
+        else
+        {
+            currentHealth += amount;
+        }
+
+        healthBar.SetHealth(currentHealth);
     }
 
     public void TakeDamage(int damage)
@@ -35,20 +74,19 @@ public class PlayerHealth : MonoBehaviour
         {
             //Prendre des dommages
             currentHealth -= damage;
-            if(currentHealth < 0)
-                currentHealth = 0;
+            
             healthBar.SetHealth(currentHealth);
+            if (currentHealth <= 0)
+            {
+                StartCoroutine(DelayBeforeDestroy()); 
+                return;
+            }
             isInvincible = true;
             StartCoroutine(InvicibilityFlash());
             StartCoroutine(HandleInvicibilityDelay());
         }
 
-        if(currentHealth <= 0)
-        {
-            
-            GetComponent<PlayerSM>().TransitionToState(PlayerSM.PlayerState.DEAD);
-            
-        }
+        
         
     }
 
@@ -67,5 +105,12 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(invicibilityTimeAfterHit);
         isInvincible=false;
+    }
+
+    public IEnumerator DelayBeforeDestroy()
+    {
+        GetComponent<PlayerSM>().TransitionToState(PlayerSM.PlayerState.DEAD);
+        yield return new WaitForSeconds(destroyDelay);
+        Destroy(gameObject);
     }
 }

@@ -41,6 +41,7 @@ public class PlayerSM : MonoBehaviour
         JUMP,
         TAUNT,
         DEAD,
+        ULTIMATE,
     }
 
 
@@ -119,6 +120,13 @@ public class PlayerSM : MonoBehaviour
                 break;
             case PlayerState.DEAD:
                 animator.SetBool("isDead", true);
+                rb2D.velocity = Vector2.zero;
+                gameObject.layer = 8;
+
+                break;
+
+            case PlayerState.ULTIMATE:
+                animator.SetBool("isReviving", true);
                 rb2D.velocity = Vector2.zero;
                 gameObject.layer = 8;
 
@@ -332,6 +340,11 @@ public class PlayerSM : MonoBehaviour
                 rb2D.velocity = Vector2.zero;
 
                 break;
+            case PlayerState.ULTIMATE:
+                
+                rb2D.velocity = Vector2.zero;
+
+                break;
 
 
 
@@ -366,7 +379,12 @@ public class PlayerSM : MonoBehaviour
 
             case PlayerState.DEAD:
                 animator.SetBool("isDead", false);
+                StartCoroutine(ULTIMATE());
                 break;
+            case PlayerState.ULTIMATE:
+                animator.SetBool("isReviving", false);
+                break;
+
             default:
                 break;
         }
@@ -379,11 +397,11 @@ public class PlayerSM : MonoBehaviour
         OnStateEnter();
     }
 
-    IEnumerator TAUNT()
+    public IEnumerator ULTIMATE()
     {
 
-        yield return new WaitForSeconds(tauntClip.length);
-        TransitionToState(PlayerState.IDLE);
+        yield return new WaitForSeconds(2);
+        TransitionToState(PlayerState.ULTIMATE);
 
     }
 
