@@ -1277,6 +1277,7 @@ MonoBehaviour:
   currentHealth: 0
   invicibilityFlashDelay: 0.2
   invicibilityTimeAfterHit: 1.5
+  destroyDelay: 1.5
   isInvincible: 0
   graphics: {fileID: 922748713}
   healthBar: {fileID: 1978880781}
@@ -1438,28 +1439,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2082755306769395703, guid: f85feef8ad563724e841fb18b31a4222, type: 3}
   m_PrefabInstance: {fileID: 2082755308021136679}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1504982618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7762064441950788478, guid: 2df5871337706624c8dcbf30f6decf7c, type: 3}
-  m_PrefabInstance: {fileID: 6287233521349700764}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1504982622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3947354453815065866, guid: 2df5871337706624c8dcbf30f6decf7c, type: 3}
   m_PrefabInstance: {fileID: 6287233521349700764}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1504982623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504982618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae522c61435ca5e449c919e1c2be802e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1585342843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3181026304146840129, guid: 57e3ab02a68854c4fb346f6858a1dfbe, type: 3}
@@ -2687,10 +2671,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1019943332}
     m_Modifications:
-    - target: {fileID: 2198007531525979569, guid: 2df5871337706624c8dcbf30f6decf7c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3947354453815065866, guid: 2df5871337706624c8dcbf30f6decf7c, type: 3}
       propertyPath: m_RootOrder
       value: 0
