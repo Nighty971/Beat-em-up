@@ -9,10 +9,10 @@ public class EnergyBar : MonoBehaviour
 
     
     public Image fill;
-    public void SetMaxEnergy(int energy)
+    public void SetMaxEnergy(int ernergy)
     {
-        slider.maxValue = energy;
-        slider.value = energy;
+        slider.maxValue = ernergy;
+        slider.value = ernergy;
         
     }
 
