@@ -14,6 +14,7 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] AnimationClip tauntClip;
     [SerializeField] AnimationCurve _jumpCurve;
     [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer shadow;
 
     [Header("SPEED")]
     [SerializeField] float speed = 5f;
@@ -21,7 +22,8 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] float jumpTimer;
     [SerializeField] float jumpHeight = 2f;
     [SerializeField] float jumpDuration = 2f;
-    
+    public CapsuleCollider2D playerCollider;
+
     Vector2 dirInput;
     Vector2 jumpDirection;
 
@@ -45,7 +47,16 @@ public class PlayerSM : MonoBehaviour
     }
 
 
+    public static PlayerSM instance;
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -122,7 +133,7 @@ public class PlayerSM : MonoBehaviour
                 animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
                 gameObject.layer = 8;
-
+                StartCoroutine(DEAD());
                 break;
 
             case PlayerState.ULTIMATE:
@@ -377,13 +388,13 @@ public class PlayerSM : MonoBehaviour
                 graphics.localPosition = Vector3.zero;
                 break;
 
-            case PlayerState.DEAD:
-                animator.SetBool("isDead", false);
-                StartCoroutine(ULTIMATE());
-                break;
-            case PlayerState.ULTIMATE:
-                animator.SetBool("isReviving", false);
-                break;
+            //case PlayerState.DEAD:
+            //    animator.SetBool("isDead", false);
+            //    StartCoroutine(ULTIMATE());
+            //    break;
+            //case PlayerState.ULTIMATE:
+            //    animator.SetBool("isReviving", false);
+            //    break;
 
             default:
                 break;
@@ -397,12 +408,23 @@ public class PlayerSM : MonoBehaviour
         OnStateEnter();
     }
 
-    public IEnumerator ULTIMATE()
+    //public IEnumerator ULTIMATE()
+    //{
+
+    //    yield return new WaitForSeconds(2);
+    //    TransitionToState(PlayerState.ULTIMATE);
+
+    //}
+
+    public IEnumerator DEAD()
     {
-
-        yield return new WaitForSeconds(2);
-        TransitionToState(PlayerState.ULTIMATE);
-
+        PlayerSM.instance.enabled = false;
+        PlayerSM.instance.rb2D.bodyType = RigidbodyType2D.Kinematic;
+        PlayerSM.instance.playerCollider.enabled = false;
+        yield return new WaitForSeconds(1.4f);
+        PlayerSM.instance.shadow.enabled = false;
+        yield return new WaitForSeconds(3);
+        GameOverManager.instance.OnPlayerDeath();
     }
 
     IEnumerator Punch()

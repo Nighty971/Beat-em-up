@@ -111,6 +111,7 @@ public class PlayerHealth : MonoBehaviour
     {
         GetComponent<PlayerSM>().TransitionToState(PlayerSM.PlayerState.DEAD);
         yield return new WaitForSeconds(destroyDelay);
-        Destroy(gameObject);
+        
+
     }
 }
