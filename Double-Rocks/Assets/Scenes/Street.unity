@@ -2703,7 +2703,7 @@ GameObject:
   - component: {fileID: 1548548541}
   - component: {fileID: 1548548542}
   m_Layer: 0
-  m_Name: 127_Assets_P1_SELECTOR
+  m_Name: SELECTOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3604,11 +3604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3075947656886548559, guid: dbd2d3741c6cd394bb262ec4e3d0f3ae, type: 3}
       propertyPath: m_Name
-      value: 102_Assets_SHADOW
-      objectReference: {fileID: 0}
-    - target: {fileID: 3075947656886548559, guid: dbd2d3741c6cd394bb262ec4e3d0f3ae, type: 3}
-      propertyPath: m_Layer
-      value: 6
+      value: SHADOW
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbd2d3741c6cd394bb262ec4e3d0f3ae, type: 3}

@@ -43,7 +43,7 @@ public class PlayerSM : MonoBehaviour
         JUMP,
         TAUNT,
         DEAD,
-        ULTIMATE,
+        RESPAWN,
     }
 
 
@@ -136,11 +136,17 @@ public class PlayerSM : MonoBehaviour
                 StartCoroutine(DEAD());
                 break;
 
-            case PlayerState.ULTIMATE:
-                animator.SetBool("isReviving", true);
+            case PlayerState.RESPAWN:
+                animator.SetTrigger("Respawn");
                 rb2D.velocity = Vector2.zero;
                 gameObject.layer = 8;
-
+                PlayerSM.instance.enabled = true;
+                PlayerSM.instance.rb2D.bodyType = RigidbodyType2D.Dynamic;
+                PlayerSM.instance.playerCollider.enabled = true; 
+                PlayerSM.instance.shadow.enabled = true;
+                PlayerHealth.instance.currentHealth = (PlayerHealth.instance.maxHealth);
+                PlayerHealth.instance.healthBar.SetHealth(PlayerHealth.instance.currentHealth);
+               
                 break;
 
             default:
@@ -351,7 +357,7 @@ public class PlayerSM : MonoBehaviour
                 rb2D.velocity = Vector2.zero;
 
                 break;
-            case PlayerState.ULTIMATE:
+            case PlayerState.RESPAWN:
                 
                 rb2D.velocity = Vector2.zero;
 
@@ -408,13 +414,7 @@ public class PlayerSM : MonoBehaviour
         OnStateEnter();
     }
 
-    //public IEnumerator ULTIMATE()
-    //{
-
-    //    yield return new WaitForSeconds(2);
-    //    TransitionToState(PlayerState.ULTIMATE);
-
-    //}
+    
 
     public IEnumerator DEAD()
     {
