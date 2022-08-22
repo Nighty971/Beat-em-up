@@ -26,14 +26,17 @@ public class EnnemiesHealth : MonoBehaviour
             isdead = true;
 
             GetComponent<EnnemiesSM>().TransitionToState(EnnemiesSM.EnnemieState.isDead);
-            
+
+
             //test
             if (getItem != null)
             {
                 getItem.DropItem();
-                Debug.Log("Dropped an Item " + getItem);
+                
             }
+            
             //fin
+
         }
 
         if (Input.GetKeyDown(KeyCode.I))

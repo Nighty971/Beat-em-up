@@ -7,11 +7,11 @@ public class EnnemiesSM : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] float checkRadius;
     [SerializeField] float speed = 5f;
-    [SerializeField] float attackRange = 5f;
+    [SerializeField] float attackRange /*= 5f*/;
     [SerializeField] float attackDelay = 1f;
     
     [SerializeField] GameObject graphics;
-    
+    [SerializeField] GameObject ennemiesHitPoint;
     
 
     public LayerMask whatIsPlayer;
@@ -125,7 +125,7 @@ public class EnnemiesSM : MonoBehaviour
             
 
             case EnnemieState.Attack:
-                attackTime = 0f;
+                attackTime = 1f;
                 animator.SetBool("IsRunning", false);
                 animator.SetTrigger("ATTACK");
                 rb2D.velocity = Vector2.zero;
@@ -135,6 +135,7 @@ public class EnnemiesSM : MonoBehaviour
                 animator.SetBool("IsRunning", false);
                 animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
+                Destroy(gameObject, .9f);
                 break;
             case EnnemieState.Hurt:
                 animator.SetTrigger("Hurt");
