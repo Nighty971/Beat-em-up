@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerEnergy : MonoBehaviour
 {
     public int maxEnergy = 100;
-    public int currentEnergy;
+    public float currentEnergy;
     public bool isRunning;
     public EnergyBar energyBar;
     public float regainDelay = 1.5f;
-    public int energyPoints;
+    public float energyPoints = 30f;
 
     public static PlayerEnergy instance;
     private void Awake()
@@ -29,28 +29,14 @@ public class PlayerEnergy : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isRunning = true;
 
-            if (Input.GetKey(KeyCode.LeftShift) && isRunning)
-            {
-                
-                EnergyUse(1);
-
-            }
-           
-
-            
-        }
-        
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             isRunning = false;
-            StartCoroutine(RegainEnergy());
+
         }
     }
-    public void RegainPlayer(int amount)
+    public void RegainPlayer(float amount)
     {
 
         if ((currentEnergy + amount) > maxEnergy)
@@ -67,20 +53,36 @@ public class PlayerEnergy : MonoBehaviour
 
         energyBar.SetEnergy(currentEnergy);
     }
-    void EnergyUse(int useEnergy)
+    public void EnergyUse(float useEnergy)
     {
-        //Prendre des dommages
-        currentEnergy -= useEnergy;
-        energyBar.SetEnergy(currentEnergy);
+        if (useEnergy > 0)
+        {
+            isRunning = true;
+            //Perdre endurance
+            currentEnergy -= useEnergy;
+            energyBar.SetEnergy(currentEnergy);
+
+
+        }
+        if (currentEnergy <= 0)
+        {
+            isRunning = false;
+            currentEnergy = 0;
+            RegainEnergy();
+        }
     }
 
     public IEnumerator RegainEnergy()
     {
+        isRunning = false;
+
+        yield return new WaitForSeconds(regainDelay);
+
         while (!isRunning)
         {
-            
-            yield return new WaitForSeconds(regainDelay);
-            PlayerEnergy.instance.RegainPlayer(energyPoints);
+
+            RegainPlayer(energyPoints * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
 
         }
     }

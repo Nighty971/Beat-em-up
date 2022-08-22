@@ -6,12 +6,18 @@ using UnityEngine.Tilemaps;
 public class PlayerSM : MonoBehaviour
 {
     [SerializeField] Transform graphics;
+    [SerializeField] GameObject prefabDust;
+    [SerializeField] GameObject prefabDustLand;
+    [SerializeField] GameObject prefabDustDash;
+    [SerializeField] GameObject prefabShockWaveL;
+    [SerializeField] GameObject prefabShockWaveR;
     [Header("STATE")]
     public PlayerState currentState;
 
     [Header("ANIMATIONS")]
     [SerializeField] AnimationClip punchClip;
     [SerializeField] AnimationClip tauntClip;
+    [SerializeField] AnimationClip ultimateClip;
     [SerializeField] AnimationCurve _jumpCurve;
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer shadow;
@@ -29,6 +35,7 @@ public class PlayerSM : MonoBehaviour
 
 
     public PlayerHealth playerHealth;
+    public PlayerUltimate playerUltimate;
     Rigidbody2D rb2D;
 
 
@@ -44,11 +51,14 @@ public class PlayerSM : MonoBehaviour
         TAUNT,
         DEAD,
         RESPAWN,
+        ULTIMATE,
     }
 
 
     public static PlayerSM instance;
 
+
+    PlayerEnergy playerEnergy;
     private void Awake()
     {
         if (instance != null)
@@ -64,8 +74,8 @@ public class PlayerSM : MonoBehaviour
         currentState = PlayerState.IDLE;
         rb2D = GetComponent<Rigidbody2D>();
         OnStateEnter();
-
-        
+        playerEnergy = GetComponent<PlayerEnergy>();
+        playerUltimate = GetComponent<PlayerUltimate>();
 
 
     }
@@ -121,7 +131,9 @@ public class PlayerSM : MonoBehaviour
                 break;
 
             case PlayerState.TAUNT:
+                
                 animator.SetTrigger("TAUNT");
+                StartCoroutine(Taunt());
                 
                 break;
             case PlayerState.HURT:
@@ -148,7 +160,15 @@ public class PlayerSM : MonoBehaviour
                 PlayerHealth.instance.healthBar.SetHealth(PlayerHealth.instance.currentHealth);
                
                 break;
-
+            case PlayerState.ULTIMATE:
+                animator.SetTrigger("Ultimate");
+                rb2D.velocity = Vector2.zero;
+                gameObject.layer = 8;
+                GameObject go4 = Instantiate(prefabShockWaveL, shadow.transform.position + prefabShockWaveL.transform.position, prefabShockWaveL.transform.rotation, shadow.transform);
+                Destroy(go4, .3f);
+                GameObject go5 = Instantiate(prefabShockWaveR, shadow.transform.position + prefabShockWaveR.transform.position, prefabShockWaveR.transform.rotation, shadow.transform);
+                Destroy(go5, .3f);
+                break;
             default:
                 break;
         }
@@ -168,18 +188,26 @@ public class PlayerSM : MonoBehaviour
                 {
                     TransitionToState(Input.GetKey(KeyCode.LeftShift) ? PlayerState.RUN : PlayerState.WALK);
 
+
                 }
 
                 // TO JUMP
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-
-                    
+                    GameObject go = Instantiate(prefabDust, shadow.transform.position + prefabDust.transform.position, Quaternion.identity);
+                    Destroy(go, .3f);
                     TransitionToState(PlayerState.JUMP);
 
                 }
+                //ULTIMATE
+                if (Input.GetKeyDown(KeyCode.X))
+                {
 
-                
+                    TransitionToState(PlayerState.ULTIMATE);
+                    
+
+                }
+
 
 
                 //TO PUNCH
@@ -207,6 +235,7 @@ public class PlayerSM : MonoBehaviour
                     TransitionToState(PlayerState.IDLE);
                 }
 
+                
 
                 break;
 
@@ -224,12 +253,17 @@ public class PlayerSM : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
                     TransitionToState(PlayerState.RUN);
+                    GameObject go3 = Instantiate(prefabDustDash, shadow.transform.position + prefabDustDash.transform.position, graphics.rotation);
+                    Destroy(go3, .3f);
+
                 }
 
                 // TO JUMP
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TransitionToState(PlayerState.JUMP);
+                    GameObject go = Instantiate(prefabDust, shadow.transform.position + prefabDust.transform.position, Quaternion.identity);
+                    Destroy(go, .3f);
                 }
 
                 // TO PUNCH
@@ -246,32 +280,43 @@ public class PlayerSM : MonoBehaviour
                     TransitionToState(PlayerState.IDLE);
 
                 }
+                //ULTIMATE
+                if (Input.GetKey(KeyCode.X))
+                {
 
-                
+                    TransitionToState(PlayerState.ULTIMATE);
+                    
+
+                }
+
 
 
                 break;
 
             case PlayerState.RUN:
 
+                playerEnergy.EnergyUse(40* Time.deltaTime);
+
                 // TO IDLE
                 if (dirInput.magnitude == 0)
                 {
                     TransitionToState(PlayerState.IDLE);
-                    break;
+                    
                 }
 
-                // TO RUN
-                if (!Input.GetKey(KeyCode.LeftShift))
+                // TO WALK
+                if (!Input.GetKey(KeyCode.LeftShift) || playerEnergy.currentEnergy <= 0)
                 {
                     TransitionToState(PlayerState.WALK);
-                    break;
+                    
                 }
 
                 // TO JUMP
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TransitionToState(PlayerState.JUMP);
+                    GameObject go = Instantiate(prefabDust, shadow.transform.position + prefabDust.transform.position, Quaternion.identity);
+                    Destroy(go, .3f);
                 }
 
                 // TO PUNCH
@@ -289,14 +334,18 @@ public class PlayerSM : MonoBehaviour
 
                 }
 
-                
+                //ULTIMATE
+                if (Input.GetKey(KeyCode.X))
+                {
+
+                    TransitionToState(PlayerState.ULTIMATE);
+                    
+
+                }
+
 
                 break;
 
-            case PlayerState.PUNCH:
-
-
-                break;
 
             case PlayerState.JUMP:
                 if (jumpTimer < jumpDuration)
@@ -319,17 +368,16 @@ public class PlayerSM : MonoBehaviour
                     animator.SetTrigger("AirAttack");
                 }
 
-               
-
-
-
                 break;
 
-            case PlayerState.DEAD:
+            case PlayerState.ULTIMATE:
 
-
+                //ULTIMATE
+                playerUltimate.UltimateUse(100);
+                TransitionToState(PlayerState.IDLE);
 
                 break;
+           
 
             default:
                 break;
@@ -388,19 +436,16 @@ public class PlayerSM : MonoBehaviour
 
             case PlayerState.RUN:
                 animator.SetBool("RUN", false);
+                StartCoroutine(playerEnergy.RegainEnergy());
+
                 break;
 
             case PlayerState.JUMP:
                 graphics.localPosition = Vector3.zero;
+                GameObject go2 = Instantiate(prefabDustLand, shadow.transform.position + prefabDustLand.transform.position, Quaternion.identity);
+                Destroy(go2, .3f);
                 break;
 
-            //case PlayerState.DEAD:
-            //    animator.SetBool("isDead", false);
-            //    StartCoroutine(ULTIMATE());
-            //    break;
-            //case PlayerState.ULTIMATE:
-            //    animator.SetBool("isReviving", false);
-            //    break;
 
             default:
                 break;
@@ -430,6 +475,16 @@ public class PlayerSM : MonoBehaviour
     IEnumerator Punch()
     {
         yield return new WaitForSeconds(punchClip.length);
+        TransitionToState(PlayerState.IDLE);
+    }
+    IEnumerator Ultimate()
+    {
+        yield return new WaitForSeconds(ultimateClip.length);
+        TransitionToState(PlayerState.IDLE);
+    }
+    IEnumerator Taunt()
+    {
+        yield return new WaitForSeconds(tauntClip.length);
         TransitionToState(PlayerState.IDLE);
     }
 
