@@ -125,7 +125,7 @@ public class EnnemiesSM : MonoBehaviour
             
 
             case EnnemieState.Attack:
-                attackTime = 0f;
+                attackTime = 1f;
                 animator.SetBool("IsRunning", false);
                 animator.SetTrigger("ATTACK");
                 rb2D.velocity = Vector2.zero;

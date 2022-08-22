@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1358916306021461333}
   - component: {fileID: 1358916306021461322}
   - component: {fileID: 1358916306021461323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ennemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,14 +88,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1358916306198553796}
   checkRadius: 50
-  speed: 3
+  speed: 2
   attackRange: 0.5
-  attackDelay: 1.5
+  attackDelay: 2
   graphics: {fileID: 1358916306198553798}
   ennemiesHitPoint: {fileID: 1358916306717760583}
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   currentState: 0
   isInChaseRange: 0
   isInAttackRange: 1
@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList:
-  - {fileID: 7762064441950788478, guid: 2df5871337706624c8dcbf30f6decf7c, type: 3}
-  - {fileID: 4177018341312210164, guid: 84c1906c73dd84244b4438cadd4152ac, type: 3}
   - {fileID: 2082755306769395690, guid: f85feef8ad563724e841fb18b31a4222, type: 3}
+  - {fileID: 5391373879760110526, guid: 7cc2659fc76878e4086033d18697e4d1, type: 3}
+  - {fileID: 7762064441950788478, guid: 2df5871337706624c8dcbf30f6decf7c, type: 3}
   dropNumber: 0
 --- !u!114 &1358916306021461323
 MonoBehaviour:
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1358916306717760580}
   - component: {fileID: 1358916306717760581}
   - component: {fileID: 1358916306717760634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnnemiesHitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5494502604004740392, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5494502604004740393, guid: 1a51719d107c61349a81befe8c0db692, type: 3}
       propertyPath: m_RootOrder

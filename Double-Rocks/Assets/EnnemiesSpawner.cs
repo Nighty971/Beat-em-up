@@ -14,7 +14,7 @@ public class EnnemiesSpawner : MonoBehaviour
     public static int enemyEnVie;
 
     //pour plus tard, a une certaine distance du player les ennemies spawn 
-    private float triggerRadius;
+    //private float triggerRadius = 10f;
 
 
 
@@ -22,6 +22,9 @@ public class EnnemiesSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
         // Rajouter tous les enfants de enemiesParent dans la liste enemiesInScene
         foreach (Transform child in enemiesParent)
         {
@@ -31,12 +34,14 @@ public class EnnemiesSpawner : MonoBehaviour
 
         enemyEnVie = spawnCount  + enemiesInScene.Count;
 
+
         for (int i = 0; i < spawnCount; i++)
         {
+
             Vector2 randomPos = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
 
             GameObject enemy = Instantiate(ennemies, randomPos, transform.rotation, transform);
-            //enemy.GetComponent<ennemies>().player = player;
+            
         }
 
     }
@@ -44,7 +49,8 @@ public class EnnemiesSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // modifié plus tard
+
+        // a modifié plus tard
         if (spawnCount <= 0 || player == null)
         {
             return;
