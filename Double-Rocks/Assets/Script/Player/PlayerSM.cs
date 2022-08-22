@@ -11,6 +11,7 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] GameObject prefabDustDash;
     [SerializeField] GameObject prefabShockWaveL;
     [SerializeField] GameObject prefabShockWaveR;
+    [SerializeField] GameObject hitbox;
     [Header("STATE")]
     public PlayerState currentState;
 
@@ -127,6 +128,7 @@ public class PlayerSM : MonoBehaviour
             case PlayerState.PUNCH:
                 rb2D.velocity = Vector2.zero;
                 animator.SetTrigger("PUNCH");
+                hitbox.SetActive(true);
                 StartCoroutine(Punch());
                 break;
 
@@ -165,9 +167,9 @@ public class PlayerSM : MonoBehaviour
                 rb2D.velocity = Vector2.zero;
                 gameObject.layer = 8;
                 GameObject go4 = Instantiate(prefabShockWaveL, shadow.transform.position + prefabShockWaveL.transform.position, prefabShockWaveL.transform.rotation, shadow.transform);
-                Destroy(go4, .3f);
+                Destroy(go4, .4f);
                 GameObject go5 = Instantiate(prefabShockWaveR, shadow.transform.position + prefabShockWaveR.transform.position, prefabShockWaveR.transform.rotation, shadow.transform);
-                Destroy(go5, .3f);
+                Destroy(go5, .4f);
                 break;
             default:
                 break;
@@ -437,6 +439,11 @@ public class PlayerSM : MonoBehaviour
             case PlayerState.RUN:
                 animator.SetBool("RUN", false);
                 StartCoroutine(playerEnergy.RegainEnergy());
+
+                break;
+            case PlayerState.PUNCH:
+                hitbox.SetActive(false);
+
 
                 break;
 
