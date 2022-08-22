@@ -14,6 +14,7 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] AnimationClip tauntClip;
     [SerializeField] AnimationCurve _jumpCurve;
     [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer shadow;
 
     [Header("SPEED")]
     [SerializeField] float speed = 5f;
@@ -21,7 +22,8 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] float jumpTimer;
     [SerializeField] float jumpHeight = 2f;
     [SerializeField] float jumpDuration = 2f;
-    
+    public CapsuleCollider2D playerCollider;
+
     Vector2 dirInput;
     Vector2 jumpDirection;
 
@@ -41,10 +43,20 @@ public class PlayerSM : MonoBehaviour
         JUMP,
         TAUNT,
         DEAD,
+        RESPAWN,
     }
 
 
+    public static PlayerSM instance;
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -121,7 +133,20 @@ public class PlayerSM : MonoBehaviour
                 animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
                 gameObject.layer = 8;
+                StartCoroutine(DEAD());
+                break;
 
+            case PlayerState.RESPAWN:
+                animator.SetTrigger("Respawn");
+                rb2D.velocity = Vector2.zero;
+                gameObject.layer = 8;
+                PlayerSM.instance.enabled = true;
+                PlayerSM.instance.rb2D.bodyType = RigidbodyType2D.Dynamic;
+                PlayerSM.instance.playerCollider.enabled = true; 
+                PlayerSM.instance.shadow.enabled = true;
+                PlayerHealth.instance.currentHealth = (PlayerHealth.instance.maxHealth);
+                PlayerHealth.instance.healthBar.SetHealth(PlayerHealth.instance.currentHealth);
+               
                 break;
 
             default:
@@ -332,6 +357,11 @@ public class PlayerSM : MonoBehaviour
                 rb2D.velocity = Vector2.zero;
 
                 break;
+            case PlayerState.RESPAWN:
+                
+                rb2D.velocity = Vector2.zero;
+
+                break;
 
 
 
@@ -364,9 +394,14 @@ public class PlayerSM : MonoBehaviour
                 graphics.localPosition = Vector3.zero;
                 break;
 
-            case PlayerState.DEAD:
-                animator.SetBool("isDead", false);
-                break;
+            //case PlayerState.DEAD:
+            //    animator.SetBool("isDead", false);
+            //    StartCoroutine(ULTIMATE());
+            //    break;
+            //case PlayerState.ULTIMATE:
+            //    animator.SetBool("isReviving", false);
+            //    break;
+
             default:
                 break;
         }
@@ -379,12 +414,17 @@ public class PlayerSM : MonoBehaviour
         OnStateEnter();
     }
 
-    IEnumerator TAUNT()
+    
+
+    public IEnumerator DEAD()
     {
-
-        yield return new WaitForSeconds(tauntClip.length);
-        TransitionToState(PlayerState.IDLE);
-
+        PlayerSM.instance.enabled = false;
+        PlayerSM.instance.rb2D.bodyType = RigidbodyType2D.Kinematic;
+        PlayerSM.instance.playerCollider.enabled = false;
+        yield return new WaitForSeconds(1.4f);
+        PlayerSM.instance.shadow.enabled = false;
+        yield return new WaitForSeconds(3);
+        GameOverManager.instance.OnPlayerDeath();
     }
 
     IEnumerator Punch()
