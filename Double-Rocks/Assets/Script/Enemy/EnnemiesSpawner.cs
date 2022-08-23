@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnnemiesSpawner : MonoBehaviour
 {
-    [SerializeField] int spawnCount = 5;
+    [SerializeField] int spawnCount;
     [SerializeField] Transform enemiesParent;
     [SerializeField] List<GameObject> enemiesInScene;
 
