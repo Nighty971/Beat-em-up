@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3bb1f8a78ec214404a63eedba51c4a9c
+guid: 87006b8aa2b57433692e051f398ff93f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 131_Assets_NEWSPAPER_STAND_0
+      name: 135_Assets_DUST_JUMP_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 863139809f991bb47bfce852528983f6
-      internalID: 922898791
+      spriteID: 02bf54a8ccda25840a79370e15501bd8
+      internalID: 393831805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 131_Assets_NEWSPAPER_STAND_1
+      name: 135_Assets_DUST_JUMP_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b673e6d47720774b873c0018abd04e7
-      internalID: 1922174762
+      spriteID: e223c701829c9624dafd4f7d00c34b82
+      internalID: -2041433393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 135_Assets_DUST_JUMP_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9b8c8b06bb1bb45a33dadf055f2201
+      internalID: 1999219438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 135_Assets_DUST_JUMP_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bceade58e32ad047b712c9d0172e72d
+      internalID: -2139038850
       vertices: []
       indices: 
       edges: []
@@ -156,8 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      131_Assets_NEWSPAPER_STAND_1: 1922174762
-      131_Assets_NEWSPAPER_STAND_0: 922898791
+      135_Assets_DUST_JUMP_1: -2041433393
+      135_Assets_DUST_JUMP_3: -2139038850
+      135_Assets_DUST_JUMP_2: 1999219438
+      135_Assets_DUST_JUMP_0: 393831805
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

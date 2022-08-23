@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3bb1f8a78ec214404a63eedba51c4a9c
+guid: 6359ad1eb0c65428493811baca70763d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 131_Assets_NEWSPAPER_STAND_0
+      name: 130_Assets_SHOCKWAVE_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 863139809f991bb47bfce852528983f6
-      internalID: 922898791
+      spriteID: 3a27661601dc79b4ba260154b51219cf
+      internalID: 378695323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 131_Assets_NEWSPAPER_STAND_1
+      name: 130_Assets_SHOCKWAVE_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 128
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b673e6d47720774b873c0018abd04e7
-      internalID: 1922174762
+      spriteID: 242a11e2851f32d4fb1cc198a8a7bde2
+      internalID: -1561586069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 130_Assets_SHOCKWAVE_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6ca3cee4f67d443bc66613848a35be
+      internalID: 1100418076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 130_Assets_SHOCKWAVE_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3a79327b6737e45b102586f3500954
+      internalID: 529821764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 130_Assets_SHOCKWAVE_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e525ac3cff021384a90017fc109291f3
+      internalID: -140279950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 130_Assets_SHOCKWAVE_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc8dbc35d7497541a91a1719d9e1a2b
+      internalID: 2062525841
       vertices: []
       indices: 
       edges: []
@@ -156,8 +240,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      131_Assets_NEWSPAPER_STAND_1: 1922174762
-      131_Assets_NEWSPAPER_STAND_0: 922898791
+      130_Assets_SHOCKWAVE_2: 1100418076
+      130_Assets_SHOCKWAVE_0: 378695323
+      130_Assets_SHOCKWAVE_5: 2062525841
+      130_Assets_SHOCKWAVE_3: 529821764
+      130_Assets_SHOCKWAVE_1: -1561586069
+      130_Assets_SHOCKWAVE_4: -140279950
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

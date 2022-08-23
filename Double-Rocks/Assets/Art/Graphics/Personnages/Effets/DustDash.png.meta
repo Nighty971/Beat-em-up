@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3bb1f8a78ec214404a63eedba51c4a9c
+guid: e56d9cbb3932046cba41d2298c2a5c00
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 131_Assets_NEWSPAPER_STAND_0
+      name: 138_Assets_DUST_DASH_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 863139809f991bb47bfce852528983f6
-      internalID: 922898791
+      spriteID: a6feb8b5be4da9f4cba738f056a8f472
+      internalID: -1368834352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 131_Assets_NEWSPAPER_STAND_1
+      name: 138_Assets_DUST_DASH_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b673e6d47720774b873c0018abd04e7
-      internalID: 1922174762
+      spriteID: 9f5229692515fa440a29fd0705a749ae
+      internalID: 1876699391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 138_Assets_DUST_DASH_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8142071d4ccdcd1468ca1c7747e6531a
+      internalID: -1833324618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 138_Assets_DUST_DASH_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e4ea1c773be89d42a0c1263d0dd0be6
+      internalID: -1894881482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 138_Assets_DUST_DASH_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396c601df6d35f544811224a010a5b14
+      internalID: 1436097308
       vertices: []
       indices: 
       edges: []
@@ -156,8 +219,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      131_Assets_NEWSPAPER_STAND_1: 1922174762
-      131_Assets_NEWSPAPER_STAND_0: 922898791
+      138_Assets_DUST_DASH_1: 1876699391
+      138_Assets_DUST_DASH_4: 1436097308
+      138_Assets_DUST_DASH_2: -1833324618
+      138_Assets_DUST_DASH_3: -1894881482
+      138_Assets_DUST_DASH_0: -1368834352
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

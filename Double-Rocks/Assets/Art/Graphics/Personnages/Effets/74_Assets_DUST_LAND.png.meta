@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3bb1f8a78ec214404a63eedba51c4a9c
+guid: aa0e333f83be34de98b7264428a6d6b9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 131_Assets_NEWSPAPER_STAND_0
+      name: 74_Assets_DUST_LAND_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 863139809f991bb47bfce852528983f6
-      internalID: 922898791
+      spriteID: 53eee01912aa1154cad4706fa5a45e2e
+      internalID: 156547350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 131_Assets_NEWSPAPER_STAND_1
+      name: 74_Assets_DUST_LAND_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b673e6d47720774b873c0018abd04e7
-      internalID: 1922174762
+      spriteID: 154ffdbf54151a0429bb4f70b401feac
+      internalID: -1737493207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 74_Assets_DUST_LAND_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266593477ddf0954bbba310a1caf7a36
+      internalID: 2088043531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 74_Assets_DUST_LAND_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c792e60fd3f74e469e2214ec9afafb8
+      internalID: -1333205270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 74_Assets_DUST_LAND_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5457664a35954240af6ff75b2feff99
+      internalID: -1408351398
       vertices: []
       indices: 
       edges: []
@@ -156,8 +219,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      131_Assets_NEWSPAPER_STAND_1: 1922174762
-      131_Assets_NEWSPAPER_STAND_0: 922898791
+      74_Assets_DUST_LAND_0: 156547350
+      74_Assets_DUST_LAND_2: 2088043531
+      74_Assets_DUST_LAND_3: -1333205270
+      74_Assets_DUST_LAND_1: -1737493207
+      74_Assets_DUST_LAND_4: -1408351398
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
