@@ -9,6 +9,8 @@ TagManager:
   - Machine
   - WaterCooler
   - WaveSpawner
+  - EnemyPunch
+  - UltimateZone
   layers:
   - Default
   - TransparentFX

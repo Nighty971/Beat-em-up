@@ -52,7 +52,7 @@ public class PlayerUltimate : MonoBehaviour
         
         if (useUltimate == 100)
         {
-           
+            isFull = true;
             //Utiliser Ultimate
             currentUltimate -= useUltimate;
             ultimateBar.SetUltimate(currentUltimate);
@@ -61,6 +61,7 @@ public class PlayerUltimate : MonoBehaviour
         }
         if (currentUltimate <= 0)
         {
+            isFull=false;
             currentUltimate = 0;
            
         }

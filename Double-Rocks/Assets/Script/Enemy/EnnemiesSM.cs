@@ -14,7 +14,9 @@ public class EnnemiesSM : MonoBehaviour
     public GameObject punchPoint;
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject ennemiesHitPoint;
+    [SerializeField] SpriteRenderer shadow;
     [SerializeField] AnimationClip deathClip;
+    [SerializeField] Collider2D punchCollider;
 
 
     EnnemiesHealth ennemiesHealth;
@@ -98,11 +100,7 @@ public class EnnemiesSM : MonoBehaviour
     {
         
 
-        if (isInChaseRange && isInAttackRange)
-        {
-            MoveCharacter(movement);
-
-        }
+        
 
         if (isInAttackRange)
         {
@@ -130,7 +128,7 @@ public class EnnemiesSM : MonoBehaviour
             
 
             case EnnemieState.ATTACK:
-                attackTime = 1f;
+                attackTime = .5f;
                 animator.SetBool("IsRunning", false);
                 animator.SetTrigger("ATTACK");
                 hitbox.SetActive(true);
@@ -138,11 +136,14 @@ public class EnnemiesSM : MonoBehaviour
                 break;
 
             case EnnemieState.DEAD:
-                
                 animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
+                Score.instance.AddPoint(300);
                 gameObject.GetComponent<Collider2D>().enabled = false;
                 gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                
+                punchCollider.enabled = false;
                 StartCoroutine(DEAD());
                 break;
             case EnnemieState.HURT:
@@ -196,12 +197,17 @@ public class EnnemiesSM : MonoBehaviour
                 }
 
 
-                if (! Run)
+                //if (!Run)
+                //{
+                //    TransitionToState(EnnemieState.IDLE);
+                //}
+
+                if (isInChaseRange && !isInAttackRange)
                 {
+                    MoveCharacter(movement);
                     TransitionToState(EnnemieState.IDLE);
                 }
-                
-                
+
 
                 break;
                 
@@ -255,7 +261,9 @@ public class EnnemiesSM : MonoBehaviour
 
     public IEnumerator DEAD()
     {
-        yield return new WaitForSeconds(2);
+        
+        yield return new WaitForSeconds(deathClip.length);
+        shadow.enabled = false;
         
         Destroy(gameObject);
         
@@ -273,12 +281,13 @@ public class EnnemiesSM : MonoBehaviour
             GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
             Destroy(go, .3f);
             animator.SetTrigger("Hurt");
-            ennemiesHealth.TakeDamage(20f);
+            ennemiesHealth.TakeDamage(10);
         }
 
         if (collision.CompareTag("UltimateZone"))
         {
-
+            ennemiesHealth.TakeDamage(100);
+            TransitionToState(currentState);
         }
     }
 

@@ -30,7 +30,7 @@ public class EnnemiesHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthAmount <= 0)
+        if (healthAmount <= 0 && !isdead)
         {
             isdead = true;
 

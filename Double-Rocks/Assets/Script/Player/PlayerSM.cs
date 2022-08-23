@@ -204,7 +204,7 @@ public class PlayerSM : MonoBehaviour
 
                 }
                 //ULTIMATE
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.X) && playerUltimate.currentUltimate == 100)
                 {
 
                     TransitionToState(PlayerState.ULTIMATE);
@@ -291,7 +291,7 @@ public class PlayerSM : MonoBehaviour
 
                 }
                 //ULTIMATE
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.X)&& playerUltimate.currentUltimate == 100)
                 {
 
                     TransitionToState(PlayerState.ULTIMATE);
@@ -349,7 +349,7 @@ public class PlayerSM : MonoBehaviour
                 }
 
                 //ULTIMATE
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.X) && playerUltimate.currentUltimate == 100)
                 {
 
                     TransitionToState(PlayerState.ULTIMATE);
