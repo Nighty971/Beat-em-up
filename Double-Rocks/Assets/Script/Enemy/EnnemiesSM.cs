@@ -79,11 +79,11 @@ public class EnnemiesSM : MonoBehaviour
 
         if (dir.x > 0)
         {
-            graphics.transform.localScale = new Vector3(1, 1, 1);
+            graphics.transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else
         {
-            graphics.transform.localScale = new Vector3(-1, 1, 1);
+            graphics.transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
 
