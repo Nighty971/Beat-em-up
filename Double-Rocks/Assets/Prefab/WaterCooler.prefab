@@ -169,6 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterCoolerPrefabs: {fileID: 7144716896010418227}
+  punchShockPrefabs: {fileID: 4903838377268857215, guid: 44b0b7241f507934ba6059193df2cffc, type: 3}
+  punchPoint: {fileID: 0}
   currentState: 0
   waterCoolerAnimator: {fileID: 4363940865321045695}
   isDestroy: 0

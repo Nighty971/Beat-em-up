@@ -5,6 +5,8 @@ using UnityEngine;
 public class WaterCoolerSM : MonoBehaviour
 {
     public GameObject waterCoolerPrefabs;
+    public GameObject punchShockPrefabs;
+    public GameObject punchPoint;
     public WaterCoolerState currentState;
     public Animator waterCoolerAnimator;
     public bool isDestroy;
@@ -81,8 +83,11 @@ public class WaterCoolerSM : MonoBehaviour
         
         if (collision.transform.CompareTag("PunchPoint"))
         {
+
             isDestroy = true;
             waterCoolerAnimator.SetTrigger("Destroy");
+            GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
+            Destroy(go, .3f);
 
         }
 

@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   streetLightPrefabs: {fileID: 3021200245129000522}
+  punchShockPrefabs: {fileID: 4903838377268857215, guid: 44b0b7241f507934ba6059193df2cffc, type: 3}
+  punchPoint: {fileID: 0}
   currentState: 0
   streetLightAnimator: {fileID: 3294969573742545093}
   isDestroy: 0

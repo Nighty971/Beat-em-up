@@ -5,6 +5,8 @@ using UnityEngine;
 public class HydrantSM : MonoBehaviour
 {
     public GameObject hydrantPrefabs;
+    public GameObject punchShockPrefabs;
+    public GameObject punchPoint;
     public HydrantState currentState;
     public Animator hydrantAnimator;
     public bool isDestroy;
@@ -83,6 +85,8 @@ public class HydrantSM : MonoBehaviour
         {
             isDestroy = true;
             hydrantAnimator.SetTrigger("Destroy");
+            GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
+            Destroy(go, .3f);
 
         }
 

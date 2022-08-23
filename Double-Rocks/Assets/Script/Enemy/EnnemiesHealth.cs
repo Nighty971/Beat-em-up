@@ -10,7 +10,16 @@ public class EnnemiesHealth : MonoBehaviour
     public static bool isdead;
 
     private ItemDrop getItem;
+    public static EnnemiesHealth instance;
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +34,7 @@ public class EnnemiesHealth : MonoBehaviour
         {
             isdead = true;
 
-            GetComponent<EnnemiesSM>().TransitionToState(EnnemiesSM.EnnemieState.isDead);
+            GetComponent<EnnemiesSM>().TransitionToState(EnnemiesSM.EnnemieState.DEAD);
 
 
             //test

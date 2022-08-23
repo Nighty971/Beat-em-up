@@ -5,6 +5,8 @@ using UnityEngine;
 public class NewPaperSM : MonoBehaviour
 {
     public GameObject vendorMachinePrefabs;
+    public GameObject punchShockPrefabs;
+    public GameObject punchPoint;
     public NewPaperState currentState;
     public Animator newPaperAnimator;
     public bool isDestroy;
@@ -83,7 +85,8 @@ public class NewPaperSM : MonoBehaviour
         {
             isDestroy = true;
             newPaperAnimator.SetTrigger("Destroy");
-
+            GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
+            Destroy(go, .3f);
         }
 
     }
