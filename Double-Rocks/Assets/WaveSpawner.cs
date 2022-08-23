@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnTimer = 1f;
+        spawnTimer = 3f;
         spawnInterval = 3f;
         //GenerateWave();
     }
@@ -67,7 +67,7 @@ public class WaveSpawner : MonoBehaviour
         }
         */
     }
-    
+    /*
     public void GenerateWave()
     {
         //waveValue = currWave * 10;
@@ -76,7 +76,7 @@ public class WaveSpawner : MonoBehaviour
         spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
         waveTimer = waveDuration; // wave duration is read only
     }
-    
+    */
 }
 
 [System.Serializable]

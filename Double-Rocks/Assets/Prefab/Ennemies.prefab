@@ -91,8 +91,8 @@ MonoBehaviour:
   animator: {fileID: 1358916306198553796}
   checkRadius: 50
   speed: 3
-  attackRange: 0.5
-  attackDelay: 2
+  attackRange: 1
+  attackDelay: 3
   hitbox: {fileID: 1358916306717760583}
   graphics: {fileID: 1358916306198553798}
   ennemiesHitPoint: {fileID: 1358916306717760583}
