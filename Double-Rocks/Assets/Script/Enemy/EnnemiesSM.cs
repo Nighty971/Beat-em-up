@@ -13,7 +13,7 @@ public class EnnemiesSM : MonoBehaviour
 
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject ennemiesHitPoint;
-    
+    public CapsuleCollider2D ennemyCollider;
 
     public LayerMask whatIsPlayer;
     public EnnemieState currentState;
@@ -42,7 +42,19 @@ public class EnnemiesSM : MonoBehaviour
 
     
     Rigidbody2D rb2D;
-    
+
+
+    public static EnnemiesSM instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -79,11 +91,11 @@ public class EnnemiesSM : MonoBehaviour
 
         if (dir.x > 0)
         {
-            graphics.transform.localScale = new Vector3(1, 1, 1);
+            graphics.transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else
         {
-            graphics.transform.localScale = new Vector3(-1, 1, 1);
+            graphics.transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
 
@@ -254,4 +266,15 @@ public class EnnemiesSM : MonoBehaviour
             animator.SetTrigger("Hurt");
         }
     }
+    /*
+    public IEnumerator DEAD()
+    {
+        EnnemiesSM.instance.enabled = false;
+        EnnemiesSM.instance.rb2D.bodyType = RigidbodyType2D.Kinematic;
+        EnnemiesSM.instance.ennemyCollider.enabled = false;
+        yield return new WaitForSeconds(1.4f);
+        EnnemiesSM.instance.shadow.enabled = false;
+        yield return new WaitForSeconds(3);
+    }
+    */
 }

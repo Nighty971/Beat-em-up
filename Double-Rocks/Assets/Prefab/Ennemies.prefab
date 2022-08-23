@@ -91,7 +91,7 @@ MonoBehaviour:
   speed: 2
   attackRange: 0.5
   attackDelay: 2
-  hitbox: {fileID: 0}
+  hitbox: {fileID: 1358916306717760583}
   graphics: {fileID: 1358916306198553798}
   ennemiesHitPoint: {fileID: 1358916306717760583}
   whatIsPlayer:
