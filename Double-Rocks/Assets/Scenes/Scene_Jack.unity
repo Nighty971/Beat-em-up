@@ -650,22 +650,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ennemies (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1358916306717760580, guid: 58354ccb5ad78e141827d521184c791c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2724617
-      objectReference: {fileID: 0}
-    - target: {fileID: 1358916306717760580, guid: 58354ccb5ad78e141827d521184c791c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.41629836
-      objectReference: {fileID: 0}
-    - target: {fileID: 1358916306717760580, guid: 58354ccb5ad78e141827d521184c791c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.748
-      objectReference: {fileID: 0}
-    - target: {fileID: 1358916306717760580, guid: 58354ccb5ad78e141827d521184c791c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.2076
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58354ccb5ad78e141827d521184c791c, type: 3}
 --- !u!95 &1717591598 stripped
