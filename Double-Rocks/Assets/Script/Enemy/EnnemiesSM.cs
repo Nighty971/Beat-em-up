@@ -13,6 +13,7 @@ public class EnnemiesSM : MonoBehaviour
 
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject ennemiesHitPoint;
+    [SerializeField] SpriteRenderer shadow;
     public CapsuleCollider2D ennemyCollider;
 
     public LayerMask whatIsPlayer;
@@ -146,10 +147,9 @@ public class EnnemiesSM : MonoBehaviour
                 break;
 
             case EnnemieState.isDead:
-                animator.SetBool("IsRunning", false);
                 animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
-                Destroy(gameObject, .9f);
+                Destroy(gameObject, 1.5f);
                 break;
             case EnnemieState.Hurt:
                 animator.SetTrigger("Hurt");
@@ -242,6 +242,7 @@ public class EnnemiesSM : MonoBehaviour
 
 
             case EnnemieState.Attack:
+                hitbox.SetActive(false);
                 break;
 
         }
@@ -266,7 +267,7 @@ public class EnnemiesSM : MonoBehaviour
             animator.SetTrigger("Hurt");
         }
     }
-    /*
+    
     public IEnumerator DEAD()
     {
         EnnemiesSM.instance.enabled = false;
@@ -276,5 +277,5 @@ public class EnnemiesSM : MonoBehaviour
         EnnemiesSM.instance.shadow.enabled = false;
         yield return new WaitForSeconds(3);
     }
-    */
+    
 }
