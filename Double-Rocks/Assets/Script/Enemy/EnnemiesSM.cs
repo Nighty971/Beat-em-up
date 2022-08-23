@@ -9,7 +9,8 @@ public class EnnemiesSM : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float attackRange /*= 5f*/;
     [SerializeField] float attackDelay = 1f;
-    
+    [SerializeField] GameObject hitbox;
+
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject ennemiesHitPoint;
     
@@ -128,6 +129,7 @@ public class EnnemiesSM : MonoBehaviour
                 attackTime = 1f;
                 animator.SetBool("IsRunning", false);
                 animator.SetTrigger("ATTACK");
+                hitbox.SetActive(true);
                 rb2D.velocity = Vector2.zero;
                 break;
 
