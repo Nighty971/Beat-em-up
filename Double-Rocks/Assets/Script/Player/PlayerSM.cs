@@ -12,6 +12,7 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] GameObject prefabShockWaveL;
     [SerializeField] GameObject prefabShockWaveR;
     [SerializeField] GameObject hitbox;
+    [SerializeField] GameObject ultimateZone;
     [Header("STATE")]
     public PlayerState currentState;
 
@@ -29,7 +30,7 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] float jumpTimer;
     [SerializeField] float jumpHeight = 2f;
     [SerializeField] float jumpDuration = 2f;
-    public CapsuleCollider2D playerCollider;
+    public Collider2D playerCollider;
 
     Vector2 dirInput;
     Vector2 jumpDirection;
@@ -165,11 +166,12 @@ public class PlayerSM : MonoBehaviour
             case PlayerState.ULTIMATE:
                 animator.SetTrigger("Ultimate");
                 rb2D.velocity = Vector2.zero;
-                gameObject.layer = 8;
+                ultimateZone.SetActive(true);
                 GameObject go4 = Instantiate(prefabShockWaveL, shadow.transform.position + prefabShockWaveL.transform.position, prefabShockWaveL.transform.rotation, shadow.transform);
                 Destroy(go4, .4f);
                 GameObject go5 = Instantiate(prefabShockWaveR, shadow.transform.position + prefabShockWaveR.transform.position, prefabShockWaveR.transform.rotation, shadow.transform);
                 Destroy(go5, .4f);
+                StartCoroutine(Ultimate());
                 break;
             default:
                 break;
@@ -206,8 +208,12 @@ public class PlayerSM : MonoBehaviour
                 {
 
                     TransitionToState(PlayerState.ULTIMATE);
-                    
 
+
+                }
+                if (Input.GetKeyUp(KeyCode.X))
+                {
+                    TransitionToState(PlayerState.IDLE);
                 }
 
 
@@ -285,12 +291,16 @@ public class PlayerSM : MonoBehaviour
 
                 }
                 //ULTIMATE
-                if (Input.GetKey(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.X))
                 {
 
                     TransitionToState(PlayerState.ULTIMATE);
-                    
 
+
+                }
+                if (Input.GetKeyUp(KeyCode.X))
+                {
+                    TransitionToState(PlayerState.IDLE);
                 }
 
 
@@ -339,14 +349,18 @@ public class PlayerSM : MonoBehaviour
                 }
 
                 //ULTIMATE
-                if (Input.GetKey(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.X))
                 {
 
                     TransitionToState(PlayerState.ULTIMATE);
                     
 
                 }
-
+                if (Input.GetKeyUp(KeyCode.X))
+                {
+                    TransitionToState(PlayerState.IDLE);
+                }
+                        
 
                 break;
 
@@ -378,7 +392,7 @@ public class PlayerSM : MonoBehaviour
 
                 //ULTIMATE
                 playerUltimate.UltimateUse(100);
-                TransitionToState(PlayerState.IDLE);
+                //TransitionToState(PlayerState.IDLE);
 
                 break;
            
@@ -453,6 +467,11 @@ public class PlayerSM : MonoBehaviour
                 graphics.localPosition = Vector3.zero;
                 GameObject go2 = Instantiate(prefabDustLand, shadow.transform.position + prefabDustLand.transform.position, Quaternion.identity);
                 Destroy(go2, .3f);
+                break;
+
+            case PlayerState.ULTIMATE:
+
+                ultimateZone.SetActive(false);
                 break;
 
 

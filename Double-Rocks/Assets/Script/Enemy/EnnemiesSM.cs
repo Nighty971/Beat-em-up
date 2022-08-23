@@ -14,6 +14,7 @@ public class EnnemiesSM : MonoBehaviour
     public GameObject punchPoint;
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject ennemiesHitPoint;
+    [SerializeField] AnimationClip deathClip;
 
 
     EnnemiesHealth ennemiesHealth;
@@ -140,7 +141,9 @@ public class EnnemiesSM : MonoBehaviour
                 
                 animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
-                Destroy(gameObject, 1.5f);
+                gameObject.GetComponent<Collider2D>().enabled = false;
+                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                StartCoroutine(DEAD());
                 break;
             case EnnemieState.HURT:
                 animator.SetTrigger("Hurt");
@@ -250,6 +253,13 @@ public class EnnemiesSM : MonoBehaviour
         OnStateEnter();
     }
 
+    public IEnumerator DEAD()
+    {
+        yield return new WaitForSeconds(2);
+        
+        Destroy(gameObject);
+        
+    }
     private void MoveCharacter(Vector2 dir)
     {
         rb2D.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
@@ -258,14 +268,17 @@ public class EnnemiesSM : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-            Debug.Log("Punch " + collision.name);
-
         if (collision.CompareTag("PunchPoint"))
         {
             GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
             Destroy(go, .3f);
             animator.SetTrigger("Hurt");
             ennemiesHealth.TakeDamage(20f);
+        }
+
+        if (collision.CompareTag("UltimateZone"))
+        {
+
         }
     }
 

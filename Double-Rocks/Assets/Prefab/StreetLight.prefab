@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6837776007004149418}
   - component: {fileID: 2100948260774308422}
   - component: {fileID: 3294969573742545093}
-  - component: {fileID: 587833078}
   - component: {fileID: 587833079}
+  - component: {fileID: 2307214232823730297}
   m_Layer: 0
   m_Name: StreetLight
   m_TagString: Untagged
@@ -107,42 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!60 &587833078
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3021200245129000522}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.0625, y: 4.78125}
-    newSize: {x: 4.0625, y: 4.78125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -1.71875, y: 2.390625}
-      - {x: -1.78125, y: 2.359375}
-      - {x: -1.875, y: 0.046875}
-      - {x: -1.875, y: -1.328125}
-      - {x: -1.75, y: -1.421875}
-      - {x: -1.65625, y: -1.453125}
-      - {x: -1.3125, y: -1.453125}
-      - {x: -1.3337975, y: 1.561788}
-      - {x: -0.40625, y: 1.203125}
-      - {x: -0.40625, y: 1.671875}
-      - {x: -1.28125, y: 2.390625}
 --- !u!114 &587833079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,3 +126,29 @@ MonoBehaviour:
   streetLightAnimator: {fileID: 3294969573742545093}
   isDestroy: 0
   destroyCollider: 1
+--- !u!61 &2307214232823730297
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021200245129000522}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.5806084, y: -0.27597916}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.0625, y: 4.78125}
+    newSize: {x: 4.0625, y: 4.78125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.324234, y: 0.76700807}
+  m_EdgeRadius: 0
