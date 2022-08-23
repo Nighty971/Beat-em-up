@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StreetLightSM : MonoBehaviour
+public class WaterCoolerSM : MonoBehaviour
 {
-    public GameObject streetLightPrefabs;
-    public StreetLightState currentState;
-    public Animator streetLightAnimator;
+    public GameObject waterCoolerPrefabs;
+    public WaterCoolerState currentState;
+    public Animator waterCoolerAnimator;
     public bool isDestroy;
-    public bool destroyCollider;
 
-    public enum StreetLightState
+    public enum WaterCoolerState
     {
         IDLE,
         DESTROY,
@@ -18,8 +17,8 @@ public class StreetLightSM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentState = StreetLightState.IDLE;
-       Collider2D col = GetComponent<Collider2D>();
+        currentState = WaterCoolerState.IDLE;
+       
         OnStateEnter();
     }
 
@@ -33,13 +32,13 @@ public class StreetLightSM : MonoBehaviour
     {
         switch (currentState)
         {
-            case StreetLightState.IDLE:
+            case WaterCoolerState.IDLE:
                 isDestroy = false;
                 break;
-            case StreetLightState.DESTROY:
+            case WaterCoolerState.DESTROY:
 
                 isDestroy=true;
-                streetLightAnimator.SetTrigger("Destroy");
+                waterCoolerAnimator.SetTrigger("Destroy");
                 
                 break;
             default:
@@ -51,11 +50,11 @@ public class StreetLightSM : MonoBehaviour
     {
         switch (currentState)
         {
-            case StreetLightState.IDLE:
+            case WaterCoolerState.IDLE:
 
                 if (isDestroy)
                 {
-                    TransitionToState(StreetLightState.DESTROY);
+                    TransitionToState(WaterCoolerState.DESTROY);
                 }
 
                 break;
@@ -69,7 +68,7 @@ public class StreetLightSM : MonoBehaviour
 
     }
 
-    public void TransitionToState(StreetLightState nextState)
+    public void TransitionToState(WaterCoolerState nextState)
     {
         OnStateExit();
         currentState = nextState;
@@ -83,13 +82,9 @@ public class StreetLightSM : MonoBehaviour
         if (collision.transform.CompareTag("PunchPoint"))
         {
             isDestroy = true;
-            streetLightAnimator.SetTrigger("Destroy");
-            
-            if(destroyCollider)
-                GetComponent<Collider2D>().enabled = false;
+            waterCoolerAnimator.SetTrigger("Destroy");
 
         }
 
     }
-
 }

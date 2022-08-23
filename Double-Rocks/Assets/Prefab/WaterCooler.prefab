@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4363940865321045695}
   - component: {fileID: 1380429526}
   - component: {fileID: 1380429527}
+  - component: {fileID: 1358252671}
   m_Layer: 0
   m_Name: WaterCooler
   m_TagString: WaterCooler
@@ -155,3 +156,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.015501022, y: -0.0052500963}
   m_Size: {x: 0.6548729, y: 1.6147816}
   m_Direction: 0
+--- !u!114 &1358252671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144716896010418227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f432f53b130d37346b78283adc6a4db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterCoolerPrefabs: {fileID: 7144716896010418227}
+  currentState: 0
+  waterCoolerAnimator: {fileID: 4363940865321045695}
+  isDestroy: 0
