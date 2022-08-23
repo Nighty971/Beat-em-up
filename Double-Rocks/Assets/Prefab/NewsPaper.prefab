@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vendorMachinePrefabs: {fileID: 8187933195415682261}
+  punchShockPrefabs: {fileID: 4903838377268857215, guid: 44b0b7241f507934ba6059193df2cffc, type: 3}
+  punchPoint: {fileID: 0}
   currentState: 0
   newPaperAnimator: {fileID: 1311524995236786470}
   isDestroy: 0

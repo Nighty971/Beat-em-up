@@ -5,6 +5,8 @@ using UnityEngine;
 public class StreetLightSM : MonoBehaviour
 {
     public GameObject streetLightPrefabs;
+    public GameObject punchShockPrefabs;
+    public GameObject punchPoint;
     public StreetLightState currentState;
     public Animator streetLightAnimator;
     public bool isDestroy;
@@ -84,12 +86,13 @@ public class StreetLightSM : MonoBehaviour
         {
             isDestroy = true;
             streetLightAnimator.SetTrigger("Destroy");
-            
-            if(destroyCollider)
+            GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
+            Destroy(go, .3f);
+
+            if (destroyCollider)
                 GetComponent<Collider2D>().enabled = false;
 
         }
 
     }
-
 }

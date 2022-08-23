@@ -10,10 +10,13 @@ public class EnnemiesSM : MonoBehaviour
     [SerializeField] float attackRange /*= 5f*/;
     [SerializeField] float attackDelay = 1f;
     [SerializeField] GameObject hitbox;
-
+    public GameObject punchShockPrefabs;
+    public GameObject punchPoint;
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject ennemiesHitPoint;
-    
+
+
+    EnnemiesHealth ennemiesHealth;
 
     public LayerMask whatIsPlayer;
     public EnnemieState currentState;
@@ -33,11 +36,11 @@ public class EnnemiesSM : MonoBehaviour
     
     public enum EnnemieState
     {
-        IsRunning,
-        Idle,
-        Attack,
-        isDead,
-        Hurt,
+        RUN,
+        IDLE,
+        ATTACK,
+        DEAD,
+        HURT,
     }
 
     
@@ -48,8 +51,8 @@ public class EnnemiesSM : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-
-        currentState = EnnemieState.Idle;
+        ennemiesHealth = GetComponent<EnnemiesHealth>();
+        currentState = EnnemieState.IDLE;
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
         OnStateEnter();
@@ -113,19 +116,19 @@ public class EnnemiesSM : MonoBehaviour
 
         switch (currentState)
         {
-            case EnnemieState.Idle:
+            case EnnemieState.IDLE:
                 //animator.SetBool("IsRunning", false);
                 rb2D.velocity = Vector2.zero;
                 break;
             
 
-            case EnnemieState.IsRunning:
+            case EnnemieState.RUN:
                 animator.SetBool("IsRunning", true);
                 break;
 
             
 
-            case EnnemieState.Attack:
+            case EnnemieState.ATTACK:
                 attackTime = 1f;
                 animator.SetBool("IsRunning", false);
                 animator.SetTrigger("ATTACK");
@@ -133,13 +136,13 @@ public class EnnemiesSM : MonoBehaviour
                 rb2D.velocity = Vector2.zero;
                 break;
 
-            case EnnemieState.isDead:
-                animator.SetBool("IsRunning", false);
+            case EnnemieState.DEAD:
+                
                 animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
-                Destroy(gameObject, .9f);
+                Destroy(gameObject, 1.5f);
                 break;
-            case EnnemieState.Hurt:
+            case EnnemieState.HURT:
                 animator.SetTrigger("Hurt");
                 rb2D.velocity = Vector2.zero;
                 break;
@@ -156,43 +159,43 @@ public class EnnemiesSM : MonoBehaviour
 
         switch (currentState)
         {
-            case EnnemieState.Idle:
+            case EnnemieState.IDLE:
 
 
                 if (dir.magnitude != 0)
                 {
-                    TransitionToState(EnnemieState.IsRunning);
+                    TransitionToState(EnnemieState.RUN);
 
                 }
 
                 if (Run)
                 {
-                    TransitionToState(EnnemieState.IsRunning);
+                    TransitionToState(EnnemieState.RUN);
                 }
 
 
                 if (isInAttackRange)
                 {
-                    TransitionToState(EnnemieState.Attack);
+                    TransitionToState(EnnemieState.ATTACK);
                 }
                 
 
                 break;
 
 
-            case EnnemieState.IsRunning:
+            case EnnemieState.RUN:
 
                 MoveCharacter(movement);
                 
                 if (isInAttackRange)
                 {
-                    TransitionToState(EnnemieState.Attack);
+                    TransitionToState(EnnemieState.ATTACK);
                 }
 
 
                 if (! Run)
                 {
-                    TransitionToState(EnnemieState.Idle);
+                    TransitionToState(EnnemieState.IDLE);
                 }
                 
                 
@@ -200,13 +203,13 @@ public class EnnemiesSM : MonoBehaviour
                 break;
                 
 
-            case EnnemieState.Attack:
+            case EnnemieState.ATTACK:
 
                 attackTime += Time.deltaTime;
                 
                 if (attackTime >= attackDelay)
                 {
-                    TransitionToState(EnnemieState.Idle);
+                    TransitionToState(EnnemieState.IDLE);
                 }
                 break;
 
@@ -221,17 +224,22 @@ public class EnnemiesSM : MonoBehaviour
     {
         switch (currentState)
         {
-            case EnnemieState.Idle:
+            case EnnemieState.IDLE:
                 break;
 
-            case EnnemieState.IsRunning:
+            case EnnemieState.RUN:
                 //animator.SetBool("IsRunning", false);
                 break;
 
 
-            case EnnemieState.Attack:
+            case EnnemieState.ATTACK:
                 break;
 
+            case EnnemieState.DEAD:
+
+                rb2D.velocity = Vector2.zero;
+
+                break;
         }
     }
 
@@ -247,11 +255,18 @@ public class EnnemiesSM : MonoBehaviour
         rb2D.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("PunchPoint"))
+
+            Debug.Log("Punch " + collision.name);
+
+        if (collision.CompareTag("PunchPoint"))
         {
+            GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
+            Destroy(go, .3f);
             animator.SetTrigger("Hurt");
+            ennemiesHealth.TakeDamage(20f);
         }
     }
+
 }

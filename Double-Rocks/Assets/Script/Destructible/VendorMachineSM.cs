@@ -5,6 +5,8 @@ using UnityEngine;
 public class VendorMachineSM : MonoBehaviour
 {
     public GameObject vendorMachinePrefabs;
+    public GameObject punchShockPrefabs;
+    public GameObject punchPoint;
     public VendorMachineState currentState;
     public Animator machineAnimator;
     public bool isDestroy;
@@ -83,7 +85,8 @@ public class VendorMachineSM : MonoBehaviour
         {
             isDestroy = true;
             machineAnimator.SetTrigger("Destroy");
-
+            GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
+            Destroy(go, .3f);
         }
 
     }

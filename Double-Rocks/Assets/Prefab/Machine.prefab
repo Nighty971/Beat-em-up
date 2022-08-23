@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2085872264, guid: 5805765ce7fe042339e03a3fe3dafcc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vendorMachinePrefabs: {fileID: 7614020520576592254}
+  punchShockPrefabs: {fileID: 4903838377268857215, guid: 44b0b7241f507934ba6059193df2cffc, type: 3}
+  punchPoint: {fileID: 0}
   currentState: 0
   machineAnimator: {fileID: 6138727563961279358}
   isDestroy: 0

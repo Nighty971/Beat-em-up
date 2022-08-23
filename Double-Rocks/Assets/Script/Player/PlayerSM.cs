@@ -146,7 +146,7 @@ public class PlayerSM : MonoBehaviour
             case PlayerState.DEAD:
                 animator.SetBool("isDead", true);
                 rb2D.velocity = Vector2.zero;
-                gameObject.layer = 8;
+                
                 StartCoroutine(DEAD());
                 break;
 
@@ -217,6 +217,8 @@ public class PlayerSM : MonoBehaviour
                 {
 
                     TransitionToState(PlayerState.PUNCH);
+
+                    
 
                 }
 
@@ -508,11 +510,8 @@ public class PlayerSM : MonoBehaviour
             graphics.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Enemy"))
-        {
-            animator.SetTrigger("HURT");
-        }
-    }
+    
+
+    
+   
 }
