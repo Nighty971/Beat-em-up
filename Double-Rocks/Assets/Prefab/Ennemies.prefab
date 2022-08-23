@@ -90,14 +90,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1358916306198553796}
   checkRadius: 50
-  speed: 3
+  speed: 4
   attackRange: 1
   attackDelay: 3
   hitbox: {fileID: 1358916306717760583}
+  punchShockPrefabs: {fileID: 0}
+  punchPoint: {fileID: 0}
   graphics: {fileID: 1358916306198553798}
   ennemiesHitPoint: {fileID: 1358916306717760583}
-  shadow: {fileID: 4862200037067534768}
-  ennemyCollider: {fileID: 1358916306021461335}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
@@ -323,11 +323,6 @@ PrefabInstance:
 --- !u!4 &970791124966058728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 970791123288074964, guid: dbd2d3741c6cd394bb262ec4e3d0f3ae, type: 3}
-  m_PrefabInstance: {fileID: 1812201532}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &4862200037067534768 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4862200037671252364, guid: dbd2d3741c6cd394bb262ec4e3d0f3ae, type: 3}
   m_PrefabInstance: {fileID: 1812201532}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6817238379770030574

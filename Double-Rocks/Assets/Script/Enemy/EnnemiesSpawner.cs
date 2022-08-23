@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnnemiesSpawner : MonoBehaviour
 {
     [SerializeField] int spawnCount;
-    [SerializeField] Transform enemiesParent;
+    //[SerializeField] Transform enemiesParent;
     [SerializeField] List<GameObject> enemiesInScene;
 
     [SerializeField] GameObject ennemies;
@@ -26,19 +26,20 @@ public class EnnemiesSpawner : MonoBehaviour
 
 
         // Rajouter tous les enfants de enemiesParent dans la liste enemiesInScene
+        /*
         foreach (Transform child in enemiesParent)
         {
             enemiesInScene.Add(child.gameObject);
         }
+        */
 
-
-        enemyEnVie = spawnCount  + enemiesInScene.Count;
+        //enemyEnVie = spawnCount  + enemiesInScene.Count;
 
 
         for (int i = 0; i < spawnCount; i++)
         {
 
-            Vector2 randomPos = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
+            Vector2 randomPos = new Vector2(Random.Range(-5f, 5f), Random.Range(5f, 5f));
 
             GameObject enemy = Instantiate(ennemies, randomPos, transform.rotation, transform);
             
