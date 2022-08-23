@@ -159,3 +159,4 @@ MonoBehaviour:
   currentState: 0
   streetLightAnimator: {fileID: 3294969573742545093}
   isDestroy: 0
+  destroyCollider: 1
