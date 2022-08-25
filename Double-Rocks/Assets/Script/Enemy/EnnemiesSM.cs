@@ -43,6 +43,7 @@ public class EnnemiesSM : MonoBehaviour
     public bool isInChaseRange;
     public bool isInAttackRange;
     private bool Run = false;
+    public bool isHurt;
 
     [SerializeField] float attackTimer;
     private float attackDuration;
@@ -332,8 +333,9 @@ public class EnnemiesSM : MonoBehaviour
         if (collision.CompareTag("UltimateZone"))
 
         {
+            
             ennemiesHealth.TakeDamage(100);
-            TransitionToState(currentState);
+            TransitionToState(EnnemieState.DEAD);
         }
     }
 

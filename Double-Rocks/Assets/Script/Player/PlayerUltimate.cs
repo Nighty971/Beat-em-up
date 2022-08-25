@@ -30,7 +30,7 @@ public class PlayerUltimate : MonoBehaviour
     {
         
     }
-    public void RegainPlayer(int amount)
+    public void RegainUltimate(int amount)
     {
 
         if ((currentUltimate + amount) > maxUltimate)

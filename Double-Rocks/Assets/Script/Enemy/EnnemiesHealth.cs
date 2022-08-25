@@ -7,7 +7,7 @@ public class EnnemiesHealth : MonoBehaviour
     //[SerializeField] DataScriptable healthData;
 
     [SerializeField]public float healthAmount = 10;
-    public static bool isdead;
+    public bool isdead;
 
     private ItemDrop getItem;
     public static EnnemiesHealth instance;
@@ -30,23 +30,7 @@ public class EnnemiesHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthAmount <= 0 && !isdead)
-        {
-            isdead = true;
-
-            GetComponent<EnnemiesSM>().TransitionToState(EnnemiesSM.EnnemieState.DEAD);
-
-
-            //test
-            if (getItem != null)
-            {
-                getItem.DropItem();
-                
-            }
-            
-            //fin
-
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -64,6 +48,24 @@ public class EnnemiesHealth : MonoBehaviour
 
     { 
         healthAmount -= playerDamage;
+        if (healthAmount <= 0 && !isdead)
+        {
+            isdead = true;
+
+            GetComponent<EnnemiesSM>().TransitionToState(EnnemiesSM.EnnemieState.DEAD);
+
+
+            //test
+            if (getItem != null)
+            {
+                getItem.DropItem();
+
+            }
+
+            //fin
+
+        }
+
     }
 
 }

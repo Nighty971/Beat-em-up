@@ -22,7 +22,7 @@ public class WeakPoint : MonoBehaviour
         if (collision.CompareTag("EnemyPunch"))
         {
             animator.SetTrigger("HURT");
-            PlayerHealth.instance.TakeDamage(20);
+            PlayerHealth.instance.TakeDamage(10);
         }
     }
 }

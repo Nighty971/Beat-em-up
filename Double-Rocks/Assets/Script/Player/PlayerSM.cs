@@ -13,6 +13,7 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] GameObject prefabShockWaveR;
     [SerializeField] GameObject hitbox;
     [SerializeField] GameObject ultimateZone;
+    [SerializeField] GameObject weakPoint;
     [Header("STATE")]
     public PlayerState currentState;
 
@@ -82,9 +83,9 @@ public class PlayerSM : MonoBehaviour
         currentState = PlayerState.IDLE;
         playersHealth = GetComponent<PlayerHealth>();
         rb2D = GetComponent<Rigidbody2D>();
-        OnStateEnter();
         playerEnergy = GetComponent<PlayerEnergy>();
         playerUltimate = GetComponent<PlayerUltimate>();
+        OnStateEnter();
 
 
     }
@@ -501,6 +502,7 @@ public class PlayerSM : MonoBehaviour
         PlayerSM.instance.enabled = false;
         PlayerSM.instance.rb2D.bodyType = RigidbodyType2D.Kinematic;
         PlayerSM.instance.playerCollider.enabled = false;
+        weakPoint.SetActive(false);
         yield return new WaitForSeconds(1.4f);
         PlayerSM.instance.shadow.enabled = false;
         yield return new WaitForSeconds(3);
@@ -536,18 +538,7 @@ public class PlayerSM : MonoBehaviour
             graphics.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (collision.CompareTag("PunchPoint"))
-        {
-            GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
-            Destroy(go, .3f);
-            animator.SetTrigger("Hurt");
-            playersHealth.TakeDamage(10);
-        }
-
-    }
+    
 
 
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Record : MonoBehaviour
+public class UltimatePotion : MonoBehaviour
 {
     public bool isDestroy;
     public SpriteRenderer graphics;
@@ -12,7 +12,7 @@ public class Record : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isDestroy = true;
-            Score.instance.AddPoint(500);
+            Score.instance.AddPoint(100);
             Destroy(gameObject);
         }
 

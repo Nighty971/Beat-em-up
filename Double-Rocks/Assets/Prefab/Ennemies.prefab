@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1858912118}
   m_Layer: 6
   m_Name: Ennemies
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   currentState: 0
   isInChaseRange: 0
   isInAttackRange: 1
+  isHurt: 0
   attackTimer: 0
 --- !u!114 &1358916306021461322
 MonoBehaviour:
@@ -127,6 +128,7 @@ MonoBehaviour:
   - {fileID: 2082755306769395690, guid: f85feef8ad563724e841fb18b31a4222, type: 3}
   - {fileID: 5391373879760110526, guid: 7cc2659fc76878e4086033d18697e4d1, type: 3}
   - {fileID: 7762064441950788478, guid: 2df5871337706624c8dcbf30f6decf7c, type: 3}
+  - {fileID: 1911517576739308302, guid: d7d51632e893de44aa92dfc2143355a6, type: 3}
   dropNumber: 0
 --- !u!114 &1358916306021461323
 MonoBehaviour:
@@ -140,7 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523f1943bf569a44a914ea7850304791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 100
+  healthAmount: 50
+  isdead: 0
 --- !u!82 &1858912118
 AudioSource:
   m_ObjectHideFlags: 0
