@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class EnnemiesSM : MonoBehaviour
 {
-    [SerializeField] Animator animator;
     [SerializeField] float checkRadius;
     [SerializeField] float speed = 5f;
     [SerializeField] float attackRange /*= 5f*/;
     [SerializeField] float attackDelay = 1f;
-    [SerializeField] GameObject hitbox;
-    public GameObject punchShockPrefabs;
-    public GameObject punchPoint;
-    [SerializeField] GameObject graphics;
-    [SerializeField] GameObject ennemiesHitPoint;
+    [SerializeField] private float waitingTimeBeforeAttack;
+    [SerializeField] private float limitNearTarget;
+
+
+    [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer shadow;
     [SerializeField] AnimationClip deathClip;
     [SerializeField] Collider2D punchCollider;
 
+    [SerializeField]
+    private AudioClip _punchAudioClip;
+    private AudioSource _audioSource;
+
+
+    [SerializeField] GameObject hitbox;
+    [SerializeField] GameObject graphics;
+    [SerializeField] GameObject ennemiesHitPoint;
+
+    public GameObject punchShockPrefabs;
+    public GameObject punchPoint;
 
     EnnemiesHealth ennemiesHealth;
 
@@ -34,8 +44,8 @@ public class EnnemiesSM : MonoBehaviour
     public bool isInAttackRange;
     private bool Run = false;
 
-
-    private float attackTime;
+    [SerializeField] float attackTimer;
+    private float attackDuration;
     
     public enum EnnemieState
     {
@@ -53,6 +63,9 @@ public class EnnemiesSM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // test son
+        _audioSource = GetComponent<AudioSource>();
+
         rb2D = GetComponent<Rigidbody2D>();
         ennemiesHealth = GetComponent<EnnemiesHealth>();
         currentState = EnnemieState.IDLE;
@@ -81,7 +94,7 @@ public class EnnemiesSM : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         dir.Normalize();
         movement = dir;
-
+        
 
         if (dir.x > 0)
         {
@@ -99,9 +112,6 @@ public class EnnemiesSM : MonoBehaviour
     private void FixedUpdate()
     {
         
-
-        
-
         if (isInAttackRange)
         {
             rb2D.velocity = Vector2.zero;
@@ -116,7 +126,8 @@ public class EnnemiesSM : MonoBehaviour
         switch (currentState)
         {
             case EnnemieState.IDLE:
-                //animator.SetBool("IsRunning", false);
+                attackTimer = 0f;
+                animator.SetBool("IsRunning", false);
                 rb2D.velocity = Vector2.zero;
                 break;
             
@@ -128,10 +139,14 @@ public class EnnemiesSM : MonoBehaviour
             
 
             case EnnemieState.ATTACK:
-                attackTime = .5f;
+                _audioSource.clip = _punchAudioClip ;
+                attackDuration = 1f;
                 animator.SetBool("IsRunning", false);
                 animator.SetTrigger("ATTACK");
                 hitbox.SetActive(true);
+                //test son
+                _audioSource.Play();
+
                 rb2D.velocity = Vector2.zero;
                 break;
 
@@ -165,22 +180,29 @@ public class EnnemiesSM : MonoBehaviour
         {
             case EnnemieState.IDLE:
 
-
+                /*
                 if (dir.magnitude != 0)
                 {
                     TransitionToState(EnnemieState.RUN);
 
                 }
+                */
 
-                if (Run)
+                if (Run && !IsTargetNearLimit())
                 {
                     TransitionToState(EnnemieState.RUN);
                 }
 
 
-                if (isInAttackRange)
+                if (isInAttackRange && IsTargetNearLimit())
                 {
-                    TransitionToState(EnnemieState.ATTACK);
+                    attackTimer += Time.deltaTime;
+
+                    if (attackTimer >= waitingTimeBeforeAttack)
+                    {
+                        TransitionToState(EnnemieState.ATTACK);
+                    }
+                    
                 }
                 
 
@@ -189,22 +211,29 @@ public class EnnemiesSM : MonoBehaviour
 
             case EnnemieState.RUN:
 
-                MoveCharacter(movement);
-                
+                /*
                 if (isInAttackRange)
                 {
                     TransitionToState(EnnemieState.ATTACK);
                 }
-
-
-                //if (!Run)
-                //{
-                //    TransitionToState(EnnemieState.IDLE);
-                //}
-
-                if (isInChaseRange && !isInAttackRange)
+                */
+                /*
+                if (!Run)
                 {
-                    MoveCharacter(movement);
+                    TransitionToState(EnnemieState.IDLE);
+                }
+                */
+                
+                if (!isInChaseRange && isInAttackRange)
+                {
+                    //MoveCharacter(movement);
+                    TransitionToState(EnnemieState.IDLE);
+                }
+                
+                
+                MoveCharacter(movement);
+                if (IsTargetNearLimit())
+                {
                     TransitionToState(EnnemieState.IDLE);
                 }
 
@@ -214,18 +243,36 @@ public class EnnemiesSM : MonoBehaviour
 
             case EnnemieState.ATTACK:
 
-                attackTime += Time.deltaTime;
+                attackDuration += Time.deltaTime;
                 
-                if (attackTime >= attackDelay)
+                if (attackDuration >= attackDelay)
                 {
                     TransitionToState(EnnemieState.IDLE);
                 }
+
+                if (Run && !IsTargetNearLimit())
+                {
+                    TransitionToState(EnnemieState.IDLE);
+                }
+                
                 break;
 
 
             default:
                 break;
         }
+    }
+    
+    private void MoveCharacter(Vector2 dir)
+    {
+        //rb2D.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
+        transform.position = Vector2.MoveTowards(transform.position, target.position,  speed * Time.deltaTime);
+    }
+    
+
+    bool IsTargetNearLimit()
+    {
+        return Vector2.Distance(transform.position, target.position) < limitNearTarget;
     }
 
     
@@ -267,10 +314,6 @@ public class EnnemiesSM : MonoBehaviour
         
         Destroy(gameObject);
         
-    }
-    private void MoveCharacter(Vector2 dir)
-    {
-        rb2D.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

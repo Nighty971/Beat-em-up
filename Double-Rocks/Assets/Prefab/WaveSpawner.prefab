@@ -47,10 +47,10 @@ MonoBehaviour:
   spawnDuration: 8
   numberEnnemies: 4
   enemiesToSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1358916306021461331, guid: 58354ccb5ad78e141827d521184c791c, type: 3}
+  - {fileID: 1358916306021461331, guid: 58354ccb5ad78e141827d521184c791c, type: 3}
+  - {fileID: 1358916306021461331, guid: 58354ccb5ad78e141827d521184c791c, type: 3}
+  - {fileID: 1358916306021461331, guid: 58354ccb5ad78e141827d521184c791c, type: 3}
   spawnedEnemies: []
   spawnLocation:
   - {fileID: 6124027858592213720}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1358916306021461333}
   - component: {fileID: 1358916306021461322}
   - component: {fileID: 1358916306021461323}
-  - component: {fileID: 1578814774}
+  - component: {fileID: 1858912118}
   m_Layer: 6
   m_Name: Ennemies
   m_TagString: Untagged
@@ -49,7 +49,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -73,8 +73,8 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1358916306021461333
 MonoBehaviour:
@@ -88,22 +88,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1c570258308d345ba25bc223c80b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1358916306198553796}
   checkRadius: 50
-  speed: 4
-  attackRange: 1
-  attackDelay: 3
+  speed: 3
+  attackRange: 0.9
+  attackDelay: 1.5
+  waitingTimeBeforeAttack: 0.7
+  limitNearTarget: 1
+  animator: {fileID: 1358916306198553796}
+  shadow: {fileID: 4862200037067534768}
+  deathClip: {fileID: 7400000, guid: c759d973fb332a94bb07b3e012028e96, type: 2}
+  punchCollider: {fileID: 1358916306717760634}
+  _punchAudioClip: {fileID: 8300000, guid: 06283a32a1eb94b3ab3e11edc0ac6559, type: 3}
   hitbox: {fileID: 1358916306717760583}
-  punchShockPrefabs: {fileID: 0}
-  punchPoint: {fileID: 0}
   graphics: {fileID: 1358916306198553798}
   ennemiesHitPoint: {fileID: 1358916306717760583}
+  punchShockPrefabs: {fileID: 4903838377268857215, guid: 44b0b7241f507934ba6059193df2cffc, type: 3}
+  punchPoint: {fileID: 1358916306717760583}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
   currentState: 0
   isInChaseRange: 0
   isInAttackRange: 1
+  attackTimer: 0
 --- !u!114 &1358916306021461322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,19 +140,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523f1943bf569a44a914ea7850304791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 10
---- !u!114 &1578814774
-MonoBehaviour:
+  healthAmount: 100
+--- !u!82 &1858912118
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358916306021461331}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60ac8b70bcf3d634eb195b6d626f30f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1358916306717760583
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,13 +248,13 @@ GameObject:
   - component: {fileID: 1358916306717760580}
   - component: {fileID: 1358916306717760581}
   - component: {fileID: 1358916306717760634}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: EnnemiesHitPoint
-  m_TagString: Untagged
+  m_TagString: EnemyPunch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1358916306717760580
 Transform:
   m_ObjectHideFlags: 0
@@ -172,8 +263,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358916306717760583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.748, y: 0.2076, z: 0}
-  m_LocalScale: {x: 0.2724617, y: 0.41629836, z: 0.9594704}
+  m_LocalPosition: {x: 0.641, y: -0.04, z: 0}
+  m_LocalScale: {x: 0.5619523, y: 1.326951, z: 0.9594704}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1358916306198553799}
@@ -238,7 +329,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358916306717760583}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -276,7 +367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 970791123288074964, guid: dbd2d3741c6cd394bb262ec4e3d0f3ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: 970791123288074964, guid: dbd2d3741c6cd394bb262ec4e3d0f3ae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -323,6 +414,11 @@ PrefabInstance:
 --- !u!4 &970791124966058728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 970791123288074964, guid: dbd2d3741c6cd394bb262ec4e3d0f3ae, type: 3}
+  m_PrefabInstance: {fileID: 1812201532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4862200037067534768 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4862200037671252364, guid: dbd2d3741c6cd394bb262ec4e3d0f3ae, type: 3}
   m_PrefabInstance: {fileID: 1812201532}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6817238379770030574
