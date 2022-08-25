@@ -32,6 +32,12 @@ public class PlayerSM : MonoBehaviour
     [SerializeField] float jumpDuration = 2f;
     public Collider2D playerCollider;
 
+
+    PlayerHealth playersHealth;
+
+    public GameObject punchShockPrefabs;
+    public GameObject punchPoint;
+
     Vector2 dirInput;
     Vector2 jumpDirection;
 
@@ -74,6 +80,7 @@ public class PlayerSM : MonoBehaviour
     void Start()
     {
         currentState = PlayerState.IDLE;
+        playersHealth = GetComponent<PlayerHealth>();
         rb2D = GetComponent<Rigidbody2D>();
         OnStateEnter();
         playerEnergy = GetComponent<PlayerEnergy>();
@@ -529,8 +536,20 @@ public class PlayerSM : MonoBehaviour
             graphics.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
 
-    
-   
+        if (collision.CompareTag("PunchPoint"))
+        {
+            GameObject go = Instantiate(punchShockPrefabs, punchPoint.transform.position + punchShockPrefabs.transform.position, Quaternion.identity);
+            Destroy(go, .3f);
+            animator.SetTrigger("Hurt");
+            playersHealth.TakeDamage(10);
+        }
+
+    }
+
+
+
+
 }

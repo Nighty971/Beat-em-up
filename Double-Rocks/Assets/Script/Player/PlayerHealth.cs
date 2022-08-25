@@ -68,12 +68,12 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int ennemyDamage)
     {
         if (!isInvincible && currentHealth > 0)
         {
             //Prendre des dommages
-            currentHealth -= damage;
+            currentHealth -= ennemyDamage;
             
             healthBar.SetHealth(currentHealth);
             if (currentHealth <= 0)

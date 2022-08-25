@@ -289,6 +289,8 @@ public class EnnemiesSM : MonoBehaviour
 
 
             case EnnemieState.ATTACK:
+                hitbox.SetActive(false);
+
                 break;
 
             case EnnemieState.DEAD:
@@ -328,6 +330,7 @@ public class EnnemiesSM : MonoBehaviour
         }
 
         if (collision.CompareTag("UltimateZone"))
+
         {
             ennemiesHealth.TakeDamage(100);
             TransitionToState(currentState);

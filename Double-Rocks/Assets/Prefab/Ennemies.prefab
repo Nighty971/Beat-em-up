@@ -98,7 +98,7 @@ MonoBehaviour:
   shadow: {fileID: 4862200037067534768}
   deathClip: {fileID: 7400000, guid: c759d973fb332a94bb07b3e012028e96, type: 2}
   punchCollider: {fileID: 1358916306717760634}
-  _punchAudioClip: {fileID: 8300000, guid: 06283a32a1eb94b3ab3e11edc0ac6559, type: 3}
+  _punchAudioClip: {fileID: 8300000, guid: dec2cce71a8fa4168bb758dd0e8314b3, type: 3}
   hitbox: {fileID: 1358916306717760583}
   graphics: {fileID: 1358916306198553798}
   ennemiesHitPoint: {fileID: 1358916306717760583}
@@ -254,7 +254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1358916306717760580
 Transform:
   m_ObjectHideFlags: 0
@@ -329,10 +329,10 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358916306717760583}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
